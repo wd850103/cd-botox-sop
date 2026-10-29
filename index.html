@@ -1,0 +1,1211 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>痉挛性斜颈肉毒毒素注射规范</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* 布局：左侧固定目录 + 右侧单栏正文；超声示意图为固定深色"监视器"面板，与主题无关 */
+:root{
+  --bg:#f4f7f7; --surface:#ffffff; --sunk:#e9eff0;
+  --fg:#14232a; --muted:#56676f; --line:#d3dde0;
+  --accent:#0d7480; --accent-soft:#d8eef0;
+  --danger:#b3392d; --danger-soft:#f7e2df;
+  --warn:#9a6200; --warn-soft:#f6ecd8;
+  --f-display:"Noto Serif SC","Songti SC","SimSun",serif;
+  --f-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"Consolas",monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1416; --surface:#151e21; --sunk:#1b262a;
+  --fg:#e2eaec; --muted:#93a3a9; --line:#2a383d;
+  --accent:#4cc4cd; --accent-soft:#163538;
+  --danger:#ff8273; --danger-soft:#3a1f1c;
+  --warn:#e4ad4a; --warn-soft:#372b16;
+  color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0e1416; --surface:#151e21; --sunk:#1b262a;
+  --fg:#e2eaec; --muted:#93a3a9; --line:#2a383d;
+  --accent:#4cc4cd; --accent-soft:#163538;
+  --danger:#ff8273; --danger-soft:#3a1f1c;
+  --warn:#e4ad4a; --warn-soft:#372b16;
+  color-scheme:dark;}
+
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.75}
+.wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:200px minmax(0,1fr);gap:40px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 64px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0}
+h1{font-size:clamp(26px,3.4vw,36px);font-weight:700}
+h2{font-size:23px;font-weight:700;padding-top:8px}
+h3{font-size:17px;font-weight:600}
+p{margin:0;max-width:70ch}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-weight:500}
+small,.sub{color:var(--muted)}
+
+nav.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start;font-size:13.5px}
+nav.toc .k{font-size:11px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px;counter-reset:t}
+nav.toc a{display:flex;gap:8px;color:var(--fg);text-decoration:none;padding:5px 8px;border-radius:6px}
+nav.toc a::before{counter-increment:t;content:counter(t);font-family:var(--f-mono);color:var(--muted);min-width:1.4em}
+nav.toc a:hover,nav.toc a:focus-visible{background:var(--sunk);outline:none}
+
+main{min-width:0;display:grid;gap:56px}
+header.top{display:grid;gap:14px;padding-bottom:24px;border-bottom:2px solid var(--fg)}
+header.top .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:500}
+.disclaim{font-size:13px;color:var(--muted);max-width:none}
+
+section{display:grid;gap:18px;scroll-margin-top:24px}
+section > header{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+section > header .sn{font-family:var(--f-mono);color:var(--accent);font-size:14px}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px 18px;display:grid;gap:8px;min-width:0}
+.box h3{font-size:15.5px}
+ul.li,ol.li{margin:0;padding-left:1.25em;display:grid;gap:4px}
+ul.li li::marker{color:var(--accent)}
+.callout{border-left:3px solid var(--warn);background:var(--warn-soft);padding:12px 16px;border-radius:0 6px 6px 0;font-size:14px}
+.callout.dg{border-color:var(--danger);background:var(--danger-soft)}
+.callout b{font-weight:700}
+
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.55}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+thead th{background:var(--sunk);font-weight:700;font-size:12.5px;white-space:nowrap;position:sticky;top:0}
+tbody tr:last-child td{border-bottom:none}
+td.n,th.n{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.wide{min-width:980px}
+.mid{min-width:640px}
+td .tag{display:inline-block;font-size:11.5px;padding:0 6px;border-radius:4px;background:var(--accent-soft);color:var(--accent);margin:1px 4px 1px 0;white-space:nowrap}
+td .risk{color:var(--danger)}
+
+/* 选择器 */
+.sel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px;align-items:start}
+.pat{display:grid;gap:6px}
+.prow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 10px;border-radius:6px;background:var(--surface);border:1px solid var(--line)}
+.prow .pn{font-weight:500}
+.prow .pe{font-size:12px;color:var(--muted);display:block;line-height:1.4}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{padding:3px 10px;font-size:13px;cursor:pointer;color:var(--muted);border-left:1px solid var(--line)}
+.seg label:first-of-type{border-left:none}
+.seg input:checked + label{background:var(--accent);color:var(--surface);font-weight:700}
+.seg input:focus-visible + label{outline:2px solid var(--accent);outline-offset:-2px}
+.out{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);display:grid;gap:12px}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.side{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;min-width:0}
+.side h3{font-size:14px;margin-bottom:6px;display:flex;justify-content:space-between}
+.side ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:13px;line-height:1.45}
+.side li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px}
+.side li .src{grid-column:1/-1;font-size:11.5px;color:var(--muted)}
+.side .empty{color:var(--muted);font-size:13px}
+.total{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;background:var(--sunk);border-radius:8px;padding:10px 14px}
+.total .big{font-family:var(--f-mono);font-size:22px;font-variant-numeric:tabular-nums}
+.warns{display:grid;gap:6px}
+.warns .callout{font-size:13px;padding:8px 12px}
+button.btn{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;padding:4px 12px;cursor:pointer}
+button.btn:hover{border-color:var(--accent)}
+button.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.btn[aria-pressed="true"]{background:var(--accent);color:var(--surface);border-color:var(--accent)}
+
+/* 超声图 */
+.legend{display:flex;flex-wrap:wrap;gap:8px}
+.lg{display:flex;gap:8px;align-items:center;font-size:12.5px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:5px 10px}
+.lg svg{width:30px;height:20px;flex:none;border-radius:3px}
+.echo td:first-child{white-space:nowrap;font-weight:500}
+.fig{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:20px;align-items:start;padding-top:8px}
+.fig + .fig{border-top:1px dashed var(--line);padding-top:28px}
+.fig .svgbox{overflow-x:auto;min-width:0}
+.fig svg.us{width:100%;min-width:620px;display:block}
+.fig .cap{display:grid;gap:10px;font-size:13.5px;line-height:1.65;min-width:0}
+.fig .cap h3{display:flex;gap:10px;align-items:baseline}
+.fig .cap h3 .vid{font-family:var(--f-mono);color:var(--accent)}
+.fig dl{margin:0;display:grid;gap:8px}
+.fig dt{font-size:11.5px;letter-spacing:.1em;color:var(--muted);font-weight:700}
+.fig dd{margin:0}
+.fig dd.dg{color:var(--danger)}
+.u-base{fill:#1b1b1b}.u-skin{fill:#d6d6d6}.u-fat{fill:#383838}.u-lob{fill:url(#lob)}
+.u-m{fill:#262626;stroke:#a6a6a6;stroke-width:1.4}.u-fib{fill:url(#fib)}
+.u-thin{fill:none;stroke:#cacaca;stroke-width:2.2}
+.u-g{fill:#8a8a8a}
+.u-a{fill:#030303;stroke:#9c9c9c;stroke-width:1.6}.u-v{fill:#060606;stroke:#777;stroke-width:1.2}
+.doppler .u-a{fill:#d1392e}.doppler .u-v{fill:#2f63d4}
+.u-n{fill:#151515;stroke:#e4e4e4;stroke-width:1.6}.u-nf{fill:#8f8f8f}
+.u-bone{fill:none;stroke:#f6f6f6;stroke-width:4;stroke-linecap:round}.u-sh{fill:#020202;opacity:.93}
+.u-rev{fill:none;stroke:#b8b8b8;stroke-width:2}
+.u-eso{fill:#1f1f1f;stroke:#9a9a9a;stroke-width:5}.u-esoin{fill:#c2c2c2}
+.u-pl{fill:none;stroke:#f2f2f2;stroke-width:3}.u-aline{fill:none;stroke:#8d8d8d;stroke-width:2}
+.u-tg{fill:none;stroke:#46d7df;stroke-width:2;stroke-dasharray:6 4}
+.u-needle{stroke:#8af0a8;stroke-width:2.6;stroke-linecap:round}.u-tip{fill:#8af0a8}
+.u-scale text{fill:#c6c6c6;font-size:10px;font-family:var(--f-mono)}.u-scale line{stroke:#c6c6c6;stroke-width:1}
+.u-frame{fill:none;stroke:var(--line);stroke-width:1}
+.l-txt{fill:var(--fg);font-size:13px}.l-tg{fill:var(--accent);font-weight:700}.l-dg{fill:var(--danger);font-weight:600}.l-bn{fill:var(--muted)}
+.l-out{stroke:var(--muted);stroke-width:1}
+.l-in{stroke-width:1.1}.l-in.tg{stroke:#46d7df}.l-in.dg{stroke:#ff8b7b}.l-in.ot,.l-in.bn{stroke:#e8e8e8}
+.l-dot.tg{fill:#46d7df}.l-dot.dg{fill:#ff8b7b}.l-dot.ot,.l-dot.bn{fill:#e8e8e8}
+.o-txt{fill:var(--muted);font-size:12px}.o-probe{fill:var(--muted)}
+
+ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+ol.steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+ol.steps li::before{counter-increment:s;content:counter(s);font-family:var(--f-mono);font-size:15px;color:var(--accent);font-weight:500;border:1.5px solid var(--accent);border-radius:50%;width:28px;height:28px;display:grid;place-items:center}
+ol.steps b{font-weight:700}
+.rx{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.rx .box table{font-size:13px}
+.rx .box td,.rx .box th{padding:5px 6px}
+.rx .sum{display:flex;justify-content:space-between;border-top:1.5px solid var(--fg);padding-top:6px;font-weight:700}
+.refs{font-size:13px;color:var(--muted);display:grid;gap:6px;padding-left:1.4em;margin:0}
+.real{display:grid;gap:18px;min-width:0}
+.ph{margin:0;display:grid;gap:6px;min-width:0}
+.ph .pbox{overflow-x:auto;border-radius:6px;background:#000}
+.ph svg{display:block;width:100%;margin:0 auto}
+.ph svg text{font-family:var(--f-body);font-weight:700}
+.ph figcaption{font-size:12.5px;color:var(--muted);line-height:1.6}
+.ph figcaption b{color:var(--fg);font-weight:700}
+.ph .cr{font-size:11.5px;opacity:.9}
+.nolabel .ov{display:none}
+#s6{--ova:.95}
+.r,.rh{fill:none;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round;transition:stroke-opacity .15s,stroke-width .15s}
+.r{stroke-width:2px;stroke-opacity:var(--ova);pointer-events:all;cursor:pointer}
+.rh{stroke:#000;stroke-width:4.5px;stroke-opacity:calc(var(--ova) * .55);pointer-events:none}
+.r-tg{stroke:#3ff0f7}.r-ot{stroke:#ffb43c}.r-a{stroke:#ff5145}.r-v{stroke:#5f93ff}.r-n{stroke:#ffe23a;stroke-dasharray:4 3}
+.r.r-b{stroke:#ffffff;stroke-width:3px}
+.ph.focus .r{stroke-opacity:.15}.ph.focus .rh{stroke-opacity:.08}
+.ph.focus .r.on{stroke-opacity:1;stroke-width:3.4px}.ph.focus .rh.on{stroke-opacity:.7;stroke-width:6.5px}
+.ph.focus .r.r-b.on{stroke:#ffe46b}
+.lab{cursor:pointer}.ph.focus .lab{opacity:.3}.ph.focus .lab.on{opacity:1}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:inherit;font-size:12.5px;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:2px 10px;cursor:pointer;line-height:1.6}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
+.dot.r-tg{background:#2fd3dc}.dot.r-ot{background:#f2b04f}.dot.r-a{background:#e2463a}.dot.r-v{background:#3c76e6}.dot.r-n{background:#f6d43a}.dot.r-b{background:transparent;border:2px solid var(--muted)}
+.rng{display:inline-flex;align-items:center;gap:8px;font-size:13px;border:1px solid var(--line);border-radius:6px;padding:3px 10px;background:var(--surface)}
+.rng input{width:120px;accent-color:var(--accent)}
+.rng output{font-family:var(--f-mono);font-variant-numeric:tabular-nums;min-width:3.2em;text-align:right}
+.okey{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted)}
+.okey span{display:inline-flex;align-items:center;gap:6px}
+details.schem{grid-column:1/-1;border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:8px 14px}
+details.schem summary{cursor:pointer;font-size:13.5px;color:var(--accent);font-weight:500}
+details.schem .svgbox{padding-top:10px}
+.ctrl{display:flex;flex-wrap:wrap;gap:8px}
+.techfig{margin:0;display:grid;gap:6px}
+.techfig img{border-radius:6px;width:100%;max-width:760px;display:block}
+.techfig figcaption{font-size:12.5px;color:var(--muted)}
+
+@media (max-width: 960px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:24px}
+  nav.toc{position:static}
+  nav.toc ol{display:flex;flex-wrap:wrap;gap:4px}
+  nav.toc a{border:1px solid var(--line);padding:3px 10px}
+  .sel,.fig{grid-template-columns:minmax(0,1fr)}
+  .out{position:static}
+}
+@media (max-width: 520px){ .sides{grid-template-columns:minmax(0,1fr)} }
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="speck" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1.3 0 0 0 -0.58"/>
+    </filter>
+    <pattern id="fib" width="14" height="9" patternUnits="userSpaceOnUse">
+      <path d="M1 2h5M8 6h5M3 8h3" stroke="#8f8f8f" stroke-width="1" opacity=".6" fill="none"/>
+    </pattern>
+    <pattern id="lob" width="24" height="12" patternUnits="userSpaceOnUse">
+      <path d="M0 6 Q6 1 12 6 T24 6" stroke="#6c6c6c" fill="none" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="atten" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".05"/>
+      <stop offset=".5" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity=".5"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<div class="wrap">
+<nav class="toc" aria-label="目录">
+  <div class="k">目录</div>
+  <ol>
+    <li><a href="#s1">适应证与术前评估</a></li>
+    <li><a href="#s2">药物与配制</a></li>
+    <li><a href="#s3">剂量原则</a></li>
+    <li><a href="#s4">肌群选择（Col-Cap）</a></li>
+    <li><a href="#s5">单肌注射参数</a></li>
+    <li><a href="#s6">颈部超声图解读</a></li>
+    <li><a href="#s7">操作流程</a></li>
+    <li><a href="#s8">处方模板</a></li>
+    <li><a href="#s9">不良反应与随访</a></li>
+    <li><a href="#s10">记录表与参考文献</a></li>
+  </ol>
+</nav>
+
+<main>
+<header class="top">
+  <div class="eyebrow">标准操作方案 · SOP</div>
+  <h1>超声引导下痉挛性斜颈 A 型肉毒毒素注射标准方案</h1>
+  <div class="meta">
+    <span>版本 <b>V1.0</b></span>
+    <span>制定日期 <b class="num">2026-10-28</b></span>
+    <span>适用 <b>成人颈部肌张力障碍（痉挛性斜颈）</b></span>
+    <span>剂量单位 <b>保妥适 / 衡力 U</b></span>
+  </div>
+  <p class="disclaim"><b>免责声明：</b>本方案仅供经过肉毒毒素注射培训的专业医师学习与参考，不构成对任何具体患者的诊疗建议。剂量为文献与专家共识常用范围，实际用量须结合药品说明书、患者体型、病程、既往疗效与不良反应个体化确定。第 6 节真实超声图、MRI 与解剖图引自开放获取文献及公有领域图谱（出处与许可见各图下方），中文标注与轮廓勾画为本方案添加，为近似边界，使用前请由超声医师核对；示意图仅用于对照解剖关系。</p>
+</header>
+
+<!-- 1 -->
+<section id="s1">
+  <header><span class="sn">01</span><h2>适应证、禁忌证与术前评估</h2></header>
+  <div class="cols">
+    <div class="box">
+      <h3>适应证</h3>
+      <ul class="li">
+        <li>成人原发性（特发性）颈部肌张力障碍，头颈异常姿势或不自主运动影响生活、工作，或伴颈肩疼痛。</li>
+        <li>迟发性、继发性颈部肌张力障碍可个体化使用。</li>
+        <li>帕金森病、多系统萎缩等所致"颈前屈"疗效有限，需先明确病因。</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>禁忌证</h3>
+      <ul class="li">
+        <li>注射部位感染；对本品成分过敏。</li>
+        <li>重症肌无力、Lambert-Eaton 综合征、运动神经元病等神经肌肉接头或运动神经元疾病。</li>
+        <li>妊娠期、哺乳期。</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>慎用</h3>
+      <ul class="li">
+        <li>吞咽困难、误吸史，呼吸功能受损。</li>
+        <li>合用氨基糖苷类等影响神经肌肉传递的药物。</li>
+        <li>抗凝或抗血小板治疗（深部注射如颈长肌需评估出血风险）。</li>
+        <li>颈部手术或放疗史、颈部肌肉明显萎缩、体型消瘦。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box">
+    <h3>术前评估清单</h3>
+    <ol class="li">
+      <li><b>姿势分型</b>：坐位、站立、行走及闭眼时观察，区分"头"（寰枕—寰枢关节）与"颈"（C2–C7）成分，按 Col-Cap 分型记录（见第 4 节）；记录感觉诡计、震颤、肩抬高。</li>
+      <li><b>量表</b>：TWSTRS（严重程度、残疾、疼痛三个分量表）、Tsui 评分、疼痛 NRS/VAS。</li>
+      <li><b>触诊</b>：比较双侧肌肉肥厚、张力和压痛。</li>
+      <li><b>超声双侧对比</b>：同一体位、同一水平、探头不加压，测量候选肌厚度或横截面积；明显肥厚、主动收缩时增厚，支持该肌为责任肌。</li>
+      <li><b>肌电图（必要时）</b>：深部肌或临床判断困难时，确认静息或姿势维持时的异常放电。</li>
+      <li><b>影像记录</b>：拍摄正面、侧面、后面静态照片及 30 秒视频作为基线。</li>
+      <li><b>吞咽筛查</b>：洼田饮水试验；已有吞咽障碍者谨慎选择颈前部肌肉。</li>
+      <li><b>知情同意</b>：告知起效时间、维持时间、吞咽困难和颈部无力等风险。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="s2">
+  <header><span class="sn">02</span><h2>药物与配制</h2></header>
+  <div class="tw"><table class="mid">
+    <thead><tr><th>产品</th><th>通用名</th><th>常用规格</th><th>与保妥适单位关系（经验值）</th></tr></thead>
+    <tbody>
+      <tr><td>保妥适（Botox）</td><td>onabotulinumtoxinA</td><td class="n">100 U</td><td>本方案参照单位</td></tr>
+      <tr><td>衡力</td><td>注射用 A 型肉毒毒素（兰州）</td><td class="n">50 U / 100 U</td><td>临床多按约 1 : 1 使用</td></tr>
+      <tr><td>吉适（Dysport）</td><td>abobotulinumtoxinA</td><td class="n">300 U / 500 U</td><td>约 2.5–3 吉适单位 ≈ 1 保妥适单位</td></tr>
+      <tr><td>西马（Xeomin）</td><td>incobotulinumtoxinA</td><td class="n">50 U / 100 U</td><td>约 1 : 1</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub" style="font-size:13px">各产品单位并非严格等效，换药时应按说明书重新确定剂量，并以国内批准适应证为准。</p>
+
+  <h3>配制浓度（以 100 U/瓶计）</h3>
+  <div class="tw"><table class="mid">
+    <thead><tr><th class="n">加 0.9% 氯化钠</th><th class="n">浓度</th><th class="n">每 0.1 mL 含</th><th>适用肌肉</th></tr></thead>
+    <tbody>
+      <tr><td class="n">1.0 mL</td><td class="n">100 U/mL</td><td class="n">10 U</td><td>小而深、邻近重要结构的肌肉：头下斜肌、颈长肌、头长肌、斜角肌；吞咽风险高时的胸锁乳突肌</td></tr>
+      <tr><td class="n">2.0 mL</td><td class="n">50 U/mL</td><td class="n">5 U</td><td><b>标准浓度</b>，适用于大多数颈部肌肉</td></tr>
+      <tr><td class="n">4.0 mL</td><td class="n">25 U/mL</td><td class="n">2.5 U</td><td>宽大扁平、需较大扩散范围的肌肉（可选）：斜方肌上部、头夹肌</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cols">
+    <div class="box">
+      <h3>配制要点</h3>
+      <ul class="li">
+        <li>使用不含防腐剂的 0.9% 氯化钠，沿瓶壁缓慢注入，轻轻旋转溶解，不剧烈振荡。</li>
+        <li>配制后 2–8 °C 冷藏，按说明书时限内用完（保妥适为 24 小时内）。</li>
+        <li>用 1 mL 注射器（0.01 mL 刻度）抽取，注射器上标注浓度。</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>器械</h3>
+      <ul class="li">
+        <li>注射针：25–27G，长 38–50 mm（深部肌）；30G 13 mm（浅表肌，可选）。</li>
+        <li>联合肌电引导时用涂层肌电注射针。</li>
+        <li>超声：线阵探头 5–15 MHz；颈后深层或肥胖者备凸阵 2–5 MHz。</li>
+        <li>无菌探头套、无菌耦合剂、急救药品（肾上腺素等）。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="s3">
+  <header><span class="sn">03</span><h2>剂量原则</h2></header>
+  <div class="tw"><table class="mid">
+    <thead><tr><th>项目</th><th>推荐</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>首次治疗总量</td><td class="n">100–200 U</td><td>初治患者一般不超过 200 U，先覆盖主要责任肌</td></tr>
+      <tr><td>维持治疗总量</td><td class="n">150–300 U</td><td>根据上次疗效与不良反应调整；保妥适关键试验平均约 236 U</td></tr>
+      <tr><td>单次总量上限</td><td class="n">≤ 300 U</td><td>3 个月内各适应证累计一般不超过 400 U（保妥适说明书）</td></tr>
+      <tr><td>单点剂量</td><td class="n">5–25 U</td><td>一般不超过 50 U/点；单点容量 ≤ 0.5 mL</td></tr>
+      <tr><td>每块肌肉点数</td><td class="n">1–4 点</td><td>按肌肉体积分配；大肌肉沿肌腹多点分散</td></tr>
+      <tr><td>胸锁乳突肌</td><td class="n">双侧合计 ≤ 100 U</td><td>降低吞咽困难风险；双侧同时注射时首次每侧 ≤ 25 U</td></tr>
+      <tr><td>注射间隔</td><td class="n">≥ 12 周</td><td>避免 4 周内"补打"，以减少中和抗体产生</td></tr>
+      <tr><td>剂量调整</td><td class="n">± 20–30%</td><td>每次只调整少数肌肉的剂量，便于判断效果</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><b>取下限的情况：</b>初治、女性、低体重、高龄、颈部肌肉薄、已有吞咽困难、双侧同名肌同时注射。<b>可取上限的情况：</b>肌肉明显肥厚、病程长、既往同剂量疗效不足且无不良反应。</div>
+</section>
+
+<!-- 4 -->
+<section id="s4">
+  <header><span class="sn">04</span><h2>肌群选择：Col-Cap 分型</h2></header>
+  <p>Col-Cap 概念把头颈运动分为两层：<b>"头"（caput）</b>指头部在寰枕、寰枢关节上相对 C2 的运动，<b>"颈"（collum）</b>指 C2–C7 颈椎相对躯干的运动。两者的责任肌不同，例如同为"转头"，头旋转以对侧胸锁乳突肌和同侧头下斜肌为主，颈旋转以同侧肩胛提肌和颈夹肌为主。多数患者为几种类型的组合。</p>
+
+  <h3>肌群选择助手</h3>
+  <p class="sub" style="font-size:13px">勾选患者的姿势成分。方向定义：旋转 = 下颌转向侧；侧倾 = 耳朵靠近的肩一侧；侧移 = 头移向侧；肩抬高 = 抬高侧。结果为候选肌与每侧剂量范围（保妥适 U），需结合触诊、超声和肌电确认。默认显示一个示例（向右头旋转）。</p>
+  <div class="sel">
+    <form class="pat" id="patForm" onsubmit="return false">
+      <div id="patRows"></div>
+      <div><button type="button" class="btn" id="clearBtn">清空选择</button></div>
+    </form>
+    <div class="out" aria-live="polite">
+      <div class="sides">
+        <div class="side"><h3>左侧 <span class="num" id="sumL"></span></h3><ul id="outL"></ul></div>
+        <div class="side"><h3>右侧 <span class="num" id="sumR"></span></h3><ul id="outR"></ul></div>
+      </div>
+      <div class="total"><span class="sub">合计剂量范围</span><span class="big" id="tot">—</span><span class="sub">U（各肌下限之和 – 上限之和）</span></div>
+      <div class="warns" id="warns"></div>
+    </div>
+  </div>
+
+  <h3>Col-Cap 分型与责任肌对照表</h3>
+  <div class="tw"><table class="wide" id="ccTable">
+    <thead><tr><th>分型</th><th>英文</th><th>定义</th><th>同侧责任肌</th><th>对侧责任肌</th><th>双侧责任肌</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+</section>
+
+<!-- 5 -->
+<section id="s5">
+  <header><span class="sn">05</span><h2>单肌注射参数</h2></header>
+  <p>剂量为<b>每侧</b>用量（保妥适/衡力 U）。深度为体型正常成人的大致范围，以实时超声为准。"切面"列对应第 6 节示意图编号。</p>
+  <div class="tw"><table class="wide" id="muscleTable">
+    <thead><tr><th>肌肉</th><th>主要作用</th><th>相关分型</th><th class="n">每侧剂量 U</th><th class="n">点数</th><th class="n">单点 U</th><th>注射位置</th><th class="n">深度 cm</th><th class="n">切面</th><th>主要风险</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+</section>
+
+<!-- 6 -->
+<section id="s6">
+  <header><span class="sn">06</span><h2>颈部超声图解读</h2></header>
+  <h3>回声特征速查</h3>
+  <div class="tw"><table class="echo mid">
+    <thead><tr><th>结构</th><th>短轴（横断面）表现</th><th>长轴表现</th><th>鉴别 / 动态检查</th></tr></thead>
+    <tbody>
+      <tr><td>骨骼肌</td><td>低回声背景内散在点状、短线状高回声（"星空"样）</td><td>平行或羽状排列的高回声条纹</td><td>嘱患者做目标动作，肌肉增厚、纹理移动即为该肌</td></tr>
+      <tr><td>筋膜 / 肌外膜</td><td>包绕肌肉的线状高回声</td><td>连续高回声线</td><td>药液应在筋膜内扩散，越过筋膜则需调整针尖</td></tr>
+      <tr><td>骨皮质</td><td>强回声线，后方伴声影</td><td>同左</td><td>棘突、椎板、横突结节是定位标志，也是深部进针的"骨性屏障"</td></tr>
+      <tr><td>动脉</td><td>圆形无回声，壁较厚，搏动</td><td>管状无回声</td><td>探头加压不能压闭；彩色多普勒见搏动性血流</td></tr>
+      <tr><td>静脉</td><td>椭圆形无回声，壁薄</td><td>管状无回声</td><td>轻压即闭合；Valsalva 动作时增粗</td></tr>
+      <tr><td>神经</td><td>神经根：圆形低回声；周围神经："蜂窝"样</td><td>束状、平行线样</td><td>不搏动、不可压闭；臂丛根在肌间沟内呈串珠状排列</td></tr>
+      <tr><td>甲状腺</td><td>均匀中等偏高回声（"磨玻璃"样）</td><td>同左</td><td>位于气管两侧、颈总动脉内侧</td></tr>
+      <tr><td>气管 / 食管</td><td>气管：弧形强回声伴混响；食管：同心环"靶环"样</td><td>—</td><td>吞咽时食管蠕动、形态改变（左侧多见）</td></tr>
+      <tr><td>胸膜</td><td>强回声线，下方 A 线（等距混响）</td><td>同左</td><td>呼吸时可见"肺滑动"；出现此线即不可再向深部进针</td></tr>
+      <tr><td>受累肌（肌张力障碍）</td><td>与对侧相比增厚、横截面积增大</td><td>纹理可增粗</td><td>反复注射后可见回声增高（纤维化、脂肪浸润），需相应调整剂量</td></tr>
+    </tbody>
+  </table></div>
+
+  <p><b>学习方法</b>：先看真实超声图上的彩色勾画线认识各结构的边界和相邻关系；拖动"轮廓线"滑杆可减淡或关闭勾画，对照原始灰阶图像体会回声特点；点图下方的结构名称（或图上的标签）可单独高亮该结构；再对照同一水平的 MRI、解剖图谱和尸体解剖照片，理解肌肉之间的层次与相邻关系；最后隐藏中文标注自测。每个切面的图片按"超声 → MRI → 解剖"顺序排列。勾画线为本方案根据原图描绘的近似边界。</p>
+  <div class="okey"><span><i class="dot r-tg"></i>常用靶肌</span><span><i class="dot r-ot"></i>其他肌肉</span><span><i class="dot r-a"></i>动脉</span><span><i class="dot r-v"></i>静脉</span><span><i class="dot r-n"></i>神经（虚线）</span><span><i class="dot r-b"></i>骨面（白线）</span></div>
+  <p>每个切面先看真实超声图（图上为中文标注，可隐藏以查看原图并自测），再对照示意图理解解剖关系。真实图像来自不同设备和患者，深度、方位以图注为准。标注颜色：<span style="color:var(--accent);font-weight:700">青色 = 常用靶肌</span>，<span style="color:var(--danger);font-weight:700">红色 = 危险结构</span>，白色 = 其他肌肉，灰色 = 骨性标志，绿色 = 进针路径。</p>
+  <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+    <div class="legend" id="legend"></div>
+    <div class="ctrl">
+      <label class="rng" for="ovRange">轮廓线<input type="range" id="ovRange" min="0" max="100" step="1" value="95"><output id="ovOut" for="ovRange">95%</output></label>
+      <button type="button" class="btn" id="lblBtn" aria-pressed="false">隐藏中文标注</button>
+      <button type="button" class="btn" id="dopBtn" aria-pressed="false">示意图：显示彩色多普勒</button>
+    </div>
+  </div>
+  <div id="figs"></div>
+</section>
+
+<!-- 7 -->
+<section id="s7">
+  <header><span class="sn">07</span><h2>操作流程</h2></header>
+  <ol class="steps">
+    <li><div><b>核对与知情同意</b>：核对患者、药品批号与有效期、注射计划（肌肉、侧别、剂量），签署知情同意书。</div></li>
+    <li><div><b>体位</b>：颈前外侧肌（胸锁乳突肌、斜角肌、颈长肌）取仰卧位，头略转向对侧，肩下垫薄枕；颈后及颈后外侧肌取坐位低头前倾或俯卧位；头下斜肌取俯卧位或坐位低头。</div></li>
+    <li><div><b>超声设置</b>：选择肌骨或小器官预设；深度覆盖到靶肌深面的骨面；聚焦置于靶肌水平；彩色多普勒速度标尺调低（约 10–20 cm/s）以显示小血管。</div></li>
+    <li><div><b>扫查与定位</b>：先短轴识别结构，再转长轴确认肌纤维走向；双侧对比；嘱患者做目标动作确认靶肌；彩色多普勒标出进针路径上的血管；体表标记进针点和探头位置。</div></li>
+    <li><div><b>消毒</b>：皮肤消毒，探头套无菌套，使用无菌耦合剂。</div></li>
+    <li><div><b>进针</b>：深部或邻近血管神经的肌肉（颈长肌、头下斜肌、斜角肌、肩胛提肌、颈半棘肌）用<b>平面内</b>技术，全程显示针干与针尖；浅表大肌（胸锁乳突肌、斜方肌）可用平面外技术，通过"水定位"确认针尖。</div></li>
+    <li><div><b>推注</b>：确认针尖位于肌腹中央，回抽无血后缓慢推注；实时观察药液在肌外膜内呈低回声扩散、肌肉轻度膨隆。若药液沿筋膜间隙流走或进入皮下，停止推注并调整针尖。</div></li>
+    <li><div><b>退针</b>：每点推注后停留 5–10 秒再退针，减少药液沿针道外溢；按压 1–2 分钟。</div></li>
+    <li><div><b>记录</b>：逐点记录肌肉、侧别、浓度、点数、单点剂量、深度和超声所见（见第 10 节记录表）。</div></li>
+    <li><div><b>观察与宣教</b>：留观 15–30 分钟。告知当天勿按摩注射部位；3–7 天起效，2–6 周达峰；出现吞咽困难、呼吸困难、言语或视物异常立即就诊；颈前部注射后先进软食。</div></li>
+  </ol>
+  <figure class="techfig">
+    <img src="img/farrell_fig3.jpg" alt="超声引导下三种进针方式的操作照片" width="747" height="332" loading="lazy">
+    <figcaption><b style="color:var(--fg)">超声引导进针方式</b>：（a）胸锁乳突肌平面内进针；（b）颈长肌 / 头长肌陡角度平面外进针；（c）斜角肌平面外进针，角度过浅，不推荐。<br>引自 Farrell M, et al. Toxins 2020;12(10):626, Fig. 3（CC BY 4.0）。</figcaption>
+  </figure>
+</section>
+
+<!-- 8 -->
+<section id="s8">
+  <header><span class="sn">08</span><h2>处方模板（示例）</h2></header>
+  <p class="sub">以下为常见分型的首次治疗示例，配制浓度 5 U/0.1 mL，标注"浓配"者为 10 U/0.1 mL。实际处方须按评估结果调整。</p>
+  <div class="rx">
+    <div class="box">
+      <h3>A. 向右头旋转型（下颌转向右）</h3>
+      <table><thead><tr><th>肌肉</th><th>侧</th><th class="n">点数</th><th class="n">剂量 U</th></tr></thead><tbody>
+        <tr><td>胸锁乳突肌</td><td>左</td><td class="n">2</td><td class="n">20</td></tr>
+        <tr><td>头夹肌</td><td>右</td><td class="n">2</td><td class="n">50</td></tr>
+        <tr><td>头下斜肌（浓配）</td><td>右</td><td class="n">1</td><td class="n">15</td></tr>
+        <tr><td>头最长肌</td><td>右</td><td class="n">1</td><td class="n">20</td></tr>
+      </tbody></table>
+      <div class="sum"><span>合计</span><span class="num">105 U</span></div>
+    </div>
+    <div class="box">
+      <h3>B. 向左颈侧倾 + 左肩抬高</h3>
+      <table><thead><tr><th>肌肉</th><th>侧</th><th class="n">点数</th><th class="n">剂量 U</th></tr></thead><tbody>
+        <tr><td>肩胛提肌</td><td>左</td><td class="n">2</td><td class="n">40</td></tr>
+        <tr><td>中、后斜角肌（浓配）</td><td>左</td><td class="n">2</td><td class="n">20</td></tr>
+        <tr><td>颈夹肌</td><td>左</td><td class="n">2</td><td class="n">30</td></tr>
+        <tr><td>斜方肌上部</td><td>左</td><td class="n">2</td><td class="n">30</td></tr>
+        <tr><td>颈半棘肌</td><td>左</td><td class="n">1</td><td class="n">20</td></tr>
+      </tbody></table>
+      <div class="sum"><span>合计</span><span class="num">140 U</span></div>
+    </div>
+    <div class="box">
+      <h3>C. 头后仰型</h3>
+      <table><thead><tr><th>肌肉</th><th>侧</th><th class="n">点数</th><th class="n">剂量 U</th></tr></thead><tbody>
+        <tr><td>头夹肌</td><td>双</td><td class="n">2+2</td><td class="n">40+40</td></tr>
+        <tr><td>头半棘肌</td><td>双</td><td class="n">2+2</td><td class="n">30+30</td></tr>
+        <tr><td>斜方肌上部</td><td>双</td><td class="n">2+2</td><td class="n">20+20</td></tr>
+      </tbody></table>
+      <div class="sum"><span>合计</span><span class="num">180 U</span></div>
+      <p class="sub" style="font-size:12.5px">双侧后伸肌不同时取上限，以防抬头无力。</p>
+    </div>
+    <div class="box">
+      <h3>D. 颈前屈型</h3>
+      <table><thead><tr><th>肌肉</th><th>侧</th><th class="n">点数</th><th class="n">剂量 U</th></tr></thead><tbody>
+        <tr><td>颈长肌（浓配，超声引导）</td><td>双</td><td class="n">1+1</td><td class="n">15+15</td></tr>
+        <tr><td>胸锁乳突肌</td><td>双</td><td class="n">2+2</td><td class="n">20+20</td></tr>
+        <tr><td>前斜角肌（浓配）</td><td>双</td><td class="n">1+1</td><td class="n">10+10</td></tr>
+      </tbody></table>
+      <div class="sum"><span>合计</span><span class="num">90 U</span></div>
+      <p class="sub" style="font-size:12.5px">吞咽困难风险最高的组合。首次可先注射颈长肌，其余分次加入。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section id="s9">
+  <header><span class="sn">09</span><h2>不良反应、疗效不佳与随访</h2></header>
+  <div class="tw"><table class="wide">
+    <thead><tr><th>不良反应</th><th>常见相关肌肉 / 原因</th><th>预防</th><th>处理</th></tr></thead>
+    <tbody>
+      <tr><td>吞咽困难</td><td>胸锁乳突肌、颈长肌、舌骨上肌群，双侧颈前部注射</td><td>胸锁乳突肌双侧合计 ≤ 100 U；浓配小容量；颈前部肌分次注射</td><td>多在 1–2 周出现、持续 2–4 周；软食、少量多餐；呛咳明显或体重下降者评估误吸风险，必要时鼻饲</td></tr>
+      <tr><td>颈部无力、抬头困难</td><td>双侧头夹肌、头半棘肌大剂量</td><td>双侧后伸肌不同时取上限</td><td>颈托短期支持，一般数周内恢复；下次减量</td></tr>
+      <tr><td>局部疼痛、血肿</td><td>进针损伤</td><td>细针、彩色多普勒避开血管</td><td>按压、冷敷</td></tr>
+      <tr><td>口干、声音改变</td><td>药物向邻近结构扩散</td><td>控制容量与浓度</td><td>通常自行缓解</td></tr>
+      <tr><td>流感样症状、乏力</td><td>全身反应</td><td>—</td><td>对症处理</td></tr>
+      <tr><td>气胸</td><td>锁骨上区、斜方肌或斜角肌低位深进针</td><td>平面内显示针尖；见到胸膜线即不再深入</td><td>胸痛、气促立即胸片或超声排查</td></tr>
+      <tr><td>毒素远隔扩散</td><td>大剂量、个体易感</td><td>遵守总量上限</td><td>全身无力、复视、上睑下垂、构音或呼吸困难，立即急诊</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cols">
+    <div class="box">
+      <h3>原发无效（首次即无效）</h3>
+      <ul class="li">
+        <li>重新做 Col-Cap 分型，确认是否把"头"和"颈"成分混淆。</li>
+        <li>检查是否遗漏深部责任肌：头下斜肌、颈长肌、颈半棘肌、斜角肌。</li>
+        <li>回顾超声记录，确认药液是否注入目标肌内。</li>
+        <li>剂量不足时，在主要责任肌上增加 20–30%。</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>继发无效（曾有效后失效）</h3>
+      <ul class="li">
+        <li>考虑中和抗体，可做单侧额肌试验或趾短伸肌试验。</li>
+        <li>回顾是否有短间隔补打、单次大剂量。</li>
+        <li>姿势分型可能已改变，需重新评估。</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>随访时间点</h3>
+      <ul class="li">
+        <li><b>2–4 周</b>：疗效峰值与不良反应（TWSTRS、Tsui、疼痛评分）。</li>
+        <li><b>10–12 周</b>：疗效维持时间、症状复发情况。</li>
+        <li><b>每次注射前</b>：重新拍照、录像并分型，按上次反应调整方案。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section id="s10">
+  <header><span class="sn">10</span><h2>注射记录表与参考文献</h2></header>
+  <div class="tw"><table class="wide">
+    <thead><tr><th>日期</th><th>分型</th><th>肌肉</th><th>侧别</th><th class="n">浓度 U/0.1 mL</th><th class="n">点数</th><th class="n">单点 U</th><th class="n">合计 U</th><th class="n">深度 cm</th><th>引导方式</th><th>超声所见</th><th>不良反应</th></tr></thead>
+    <tbody>
+      <tr><td class="n">2026-10-28</td><td>头旋转（右）</td><td>头下斜肌</td><td>右</td><td class="n">10</td><td class="n">1</td><td class="n">15</td><td class="n">15</td><td class="n">3.1</td><td>超声平面内</td><td>较左侧增厚</td><td>无</td></tr>
+      <tr><td>　</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>　</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub" style="font-size:12.5px">首行为填写示例。</p>
+
+  <h3>参考文献</h3>
+  <ol class="refs">
+    <li>Reichel G, Stenner A, Jahn A. The phenomenology of cervical dystonia. Fortschr Neurol Psychiatr. 2009;77(5):272–277.</li>
+    <li>Jost WH, Tatu L. Selection of muscles for botulinum toxin injections in cervical dystonia. Mov Disord Clin Pract. 2015;2(3):224–226.</li>
+    <li>Tatu L, Jost WH. Anatomy and cervical dystonia: "Dysfunction follows form". J Neural Transm. 2017;124(2):237–243.</li>
+    <li>Schramm A, Bäumer T, Fietzek U, et al. Relevance of sonography for botulinum toxin treatment of cervical dystonia: an expert statement. J Neural Transm. 2015;122(10):1457–1463.</li>
+    <li>Farrell M, et al. Management of anterocapitis and anterocollis: a novel ultrasound guided approach combined with electromyography for botulinum toxin injection of longus colli and longus capitis. Toxins. 2020;12(10):626.</li>
+    <li>Brumpt E, Aubry S, Vuillier F, Tatu L. Anatomo-sonographic identification of the longissimus capitis and splenius cervicis muscles: principles for possible application to ultrasound-guided botulinum toxin injections in cervical dystonia. Surg Radiol Anat. 2021;43(6):909–915.</li>
+    <li>Walter U, Tsiberidou P, Kersten M, Storch A, Löhle M. Atrophy of the vagus nerve in Parkinson's disease revealed by high-resolution ultrasonography. Front Neurol. 2018;9:805.</li>
+    <li>Gray H. Anatomy of the Human Body. 20th ed. Philadelphia: Lea &amp; Febiger; 1918. Fig. 384, 385, 387, 389（公有领域，经 Wikimedia Commons）。</li>
+    <li>Scali F. Suboccipital triangle dissection. Wikimedia Commons, CC BY-SA 3.0.</li>
+    <li>Simpson DM, Hallett M, Ashman EJ, et al. Practice guideline update summary: Botulinum neurotoxin for the treatment of blepharospasm, cervical dystonia, adult spasticity, and headache. Neurology. 2016;86(19):1818–1826.</li>
+    <li>中华医学会神经病学分会帕金森病及运动障碍学组, 等. 中国肉毒毒素治疗应用专家共识. 中华神经科杂志, 2018, 51(10): 779–786.</li>
+    <li>保妥适（注射用 A 型肉毒毒素）、衡力（注射用 A 型肉毒毒素）药品说明书。</li>
+  </ol>
+  <p class="sub" style="font-size:12.5px">正式下发前请核对文献原文及最新版说明书。</p>
+</section>
+</main>
+</div>
+
+<script>
+/* ---------- 肌肉数据（每侧，保妥适 U） ---------- */
+const M = {
+  scm:{n:'胸锁乳突肌',lo:15,hi:50,p:'1–2',u:'10–25',act:'单侧：头向对侧旋转、同侧侧屈；双侧：颈前屈',loc:'上 1/3 与中 1/3 各 1 点',d:'0.5–1.5',v:'A',risk:'颈动脉鞘；吞咽困难（双侧合计 ≤ 100 U）'},
+  spc:{n:'头夹肌',lo:30,hi:100,p:'2–3',u:'15–30',act:'单侧：头同侧旋转、侧屈；双侧：头后伸',loc:'C2–C5 水平沿肌腹分布',d:'1–2.5',v:'C · D',risk:'双侧大剂量致抬头无力'},
+  spv:{n:'颈夹肌',lo:20,hi:60,p:'1–2',u:'10–25',act:'颈同侧旋转、侧屈；双侧后伸',loc:'C3–C6 水平，头夹肌外下方深面',d:'1.5–3',v:'C',risk:'需与肩胛提肌、头夹肌鉴别'},
+  trap:{n:'斜方肌上部',lo:25,hi:100,p:'2–4',u:'10–25',act:'头颈后伸、同侧侧屈、对侧旋转；抬肩',loc:'C7 棘突与肩峰连线中段沿肌腹分散',d:'0.5–1.5',v:'F · D',risk:'锁骨上区深进针致气胸'},
+  lev:{n:'肩胛提肌',lo:25,hi:80,p:'1–2',u:'15–30',act:'颈同侧侧屈、旋转；上提肩胛',loc:'颈后三角 C3–C5 1 点 + 肩胛上角附近 1 点',d:'1.5–3',v:'C',risk:'副神经、颈横动脉；低位近肺尖'},
+  scal:{n:'斜角肌群（前/中/后）',lo:15,hi:45,p:'每肌 1',u:'5–15',act:'颈同侧侧屈；前斜角肌参与颈前屈',loc:'C5–C6 肌间沟水平，浓配',d:'1–2.5',v:'B',risk:'臂丛、膈神经、椎动脉'},
+  sa:{n:'前斜角肌',lo:5,hi:15,p:'1',u:'5–15',act:'颈前屈、同侧侧屈',loc:'C5–C6 水平，臂丛前内侧，浓配',d:'1–2',v:'B',risk:'膈神经、臂丛'},
+  ssc:{n:'头半棘肌',lo:30,hi:100,p:'2–3',u:'15–30',act:'头后伸、同侧侧屈',loc:'C2–C4 棘突旁，可见腱划',d:'2–3.5',v:'D',risk:'枕大神经、颈深动脉；双侧大剂量致抬头无力'},
+  ssv:{n:'颈半棘肌',lo:20,hi:50,p:'1–2',u:'10–20',act:'颈后伸、对侧旋转',loc:'C3–C5，头半棘肌深面、椎板浅面',d:'3–4.5',v:'D',risk:'颈深动脉；勿越过椎板'},
+  lgc:{n:'头最长肌',lo:20,hi:50,p:'1–2',u:'10–25',act:'头同侧侧屈、旋转；后伸',loc:'乳突下方至 C3–C4，头半棘肌外侧',d:'2–3.5',v:'C · D',risk:'深部外侧邻近椎动脉'},
+  oci:{n:'头下斜肌',lo:10,hi:25,p:'1',u:'10–25',act:'寰枢关节同侧旋转（头旋转核心肌）',loc:'C2 棘突—C1 横突连线中内 1/3，浓配',d:'2.5–4',v:'E',risk:'椎动脉 V3 段、枕大神经'},
+  lco:{n:'颈长肌',lo:10,hi:25,p:'1',u:'10–20',act:'颈前屈、同侧侧屈',loc:'C5–C6 椎体前外侧，浓配；限有经验者',d:'2.5–4',v:'A',risk:'颈动脉、甲状腺、食管、椎动脉；吞咽困难'},
+  lca:{n:'头长肌',lo:10,hi:20,p:'1',u:'10–20',act:'头前屈',loc:'C3–C4 水平，颈长肌外上方，浓配',d:'2.5–4',v:'A（C3–C4）',risk:'颈动脉、椎动脉；吞咽困难'},
+  rcp:{n:'头后大直肌',lo:5,hi:15,p:'1',u:'5–15',act:'头后伸、同侧旋转',loc:'C2 棘突至枕骨下项线之间，浓配',d:'2.5–4',v:'E 上方',risk:'椎动脉（枕下三角）'},
+  sh:{n:'舌骨上肌群（颏下）',lo:5,hi:10,p:'1',u:'5–10',act:'头前屈',loc:'颏下横切，二腹肌前腹 / 下颌舌骨肌',d:'0.5–1.5',v:'—',risk:'吞咽困难风险高'}
+};
+/* ---------- Col-Cap 分型 ---------- */
+const P = [
+  {id:'tcap',n:'头旋转',en:'Torticaput',def:'头相对 C2 旋转（寰枢关节）',t:'lat',ipsi:['oci','spc','lgc'],contra:['scm']},
+  {id:'tcol',n:'颈旋转',en:'Torticollis',def:'C2–C7 相对躯干旋转',t:'lat',ipsi:['lev','spv'],contra:['ssv']},
+  {id:'lcap',n:'头侧倾',en:'Laterocaput',def:'头相对 C2 侧倾',t:'lat',ipsi:['scm','spc','trap','ssc','lgc']},
+  {id:'lcol',n:'颈侧倾',en:'Laterocollis',def:'颈椎相对躯干侧倾',t:'lat',ipsi:['lev','scal','spv','ssv']},
+  {id:'acap',n:'头前屈',en:'Anterocaput',def:'头相对 C2 前屈（点头样）',t:'bi',bi:['lca','sh']},
+  {id:'acol',n:'颈前屈',en:'Anterocollis',def:'颈椎相对躯干前屈',t:'bi',bi:['scm','lco','sa']},
+  {id:'rcap',n:'头后仰',en:'Retrocaput',def:'头相对 C2 后伸',t:'bi',bi:['spc','ssc','trap','rcp']},
+  {id:'rcol',n:'颈后仰',en:'Retrocollis',def:'颈椎相对躯干后伸',t:'bi',bi:['ssv','spv','lev']},
+  {id:'lsh',n:'侧移',en:'Lateral shift',def:'颈向移位侧侧倾 + 头向对侧侧倾',t:'lat',ipsi:['lev','scal','spv','ssv'],contra:['scm','spc','trap','ssc','lgc']},
+  {id:'ssh',n:'矢状位移',en:'Sagittal shift',def:'前移 = 颈前屈 + 头后仰；后移 = 颈后仰 + 头前屈',t:'sag'},
+  {id:'sho',n:'肩抬高',en:'Shoulder elevation',def:'一侧肩部上抬',t:'lat',ipsi:['lev','trap']}
+];
+const byId = Object.fromEntries(P.map(p=>[p.id,p]));
+const names = a => (a||[]).map(k=>M[k].n).join('、') || '—';
+
+/* 静态对照表 */
+(function(){
+  const tb = document.querySelector('#ccTable tbody');
+  tb.innerHTML = P.map(p=>{
+    if(p.t==='sag') return `<tr><td><b>${p.n}</b></td><td>${p.en}</td><td>${p.def}</td><td colspan="3">前移：${names(byId.acol.bi)} + ${names(byId.rcap.bi)}（双侧）；后移：${names(byId.rcol.bi)} + ${names(byId.acap.bi)}（双侧）</td></tr>`;
+    return `<tr><td><b>${p.n}</b></td><td>${p.en}</td><td>${p.def}</td><td>${p.t==='lat'?names(p.ipsi):'—'}</td><td>${p.t==='lat'?names(p.contra):'—'}</td><td>${p.t==='bi'?names(p.bi):'—'}</td></tr>`;
+  }).join('');
+})();
+
+/* 单肌参数表 */
+(function(){
+  const rel = {};
+  P.forEach(p=>{
+    const add=(arr,suf)=>(arr||[]).forEach(k=>{(rel[k]=rel[k]||[]).push(p.n+(suf||''));});
+    if(p.t==='lat'){add(p.ipsi,'（同侧）');add(p.contra,'（对侧）');}
+    if(p.t==='bi') add(p.bi);
+  });
+  const tb = document.querySelector('#muscleTable tbody');
+  tb.innerHTML = Object.keys(M).map(k=>{
+    const m=M[k];
+    const tags=(rel[k]||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+    return `<tr><td><b>${m.n}</b></td><td>${m.act}</td><td>${tags||'—'}</td><td class="n">${m.lo}–${m.hi}</td><td class="n">${m.p}</td><td class="n">${m.u}</td><td>${m.loc}</td><td class="n">${m.d}</td><td class="n">${m.v}</td><td class="risk">${m.risk}</td></tr>`;
+  }).join('');
+})();
+
+/* ---------- 肌群选择助手 ---------- */
+const DEFAULT = {tcap:'R'};
+function opts(p){
+  if(p.t==='lat') return [['','无'],['L','向左'],['R','向右']];
+  if(p.t==='sag') return [['','无'],['F','前移'],['B','后移']];
+  return [['','无'],['Y','有']];
+}
+document.getElementById('patRows').innerHTML = P.map(p=>{
+  const seg = opts(p).map(([v,l],i)=>{
+    const id=`p-${p.id}-${v||'0'}`;
+    return `<input type="radio" name="p-${p.id}" id="${id}" value="${v}" ${(DEFAULT[p.id]||'')===v?'checked':''}><label for="${id}">${l}</label>`;
+  }).join('');
+  return `<div class="prow"><div><span class="pn">${p.n}</span><span class="pe">${p.en} · ${p.def}</span></div><div class="seg" role="radiogroup" aria-label="${p.n}">${seg}</div></div>`;
+}).join('');
+
+function compute(){
+  const S = {L:new Map(), R:new Map()};
+  const other = s => s==='L'?'R':'L';
+  const add = (side,k,why)=>{ const e=S[side].get(k)||{src:new Set()}; e.src.add(why); S[side].set(k,e); };
+  const addBi = (arr,why)=>arr.forEach(k=>{add('L',k,why);add('R',k,why);});
+  P.forEach(p=>{
+    const v = (document.querySelector(`input[name="p-${p.id}"]:checked`)||{}).value||'';
+    if(!v) return;
+    if(p.t==='lat'){
+      const lab = p.n+(v==='L'?'（左）':'（右）');
+      (p.ipsi||[]).forEach(k=>add(v,k,lab));
+      (p.contra||[]).forEach(k=>add(other(v),k,lab));
+    } else if(p.t==='bi'){ addBi(p.bi,p.n); }
+    else if(p.t==='sag'){
+      if(v==='F'){ addBi(byId.acol.bi,'矢状位前移'); addBi(byId.rcap.bi,'矢状位前移'); }
+      else { addBi(byId.rcol.bi,'矢状位后移'); addBi(byId.acap.bi,'矢状位后移'); }
+    }
+  });
+  ['L','R'].forEach(s=>{ if(S[s].has('scal')&&S[s].has('sa')){ const e=S[s].get('scal'); S[s].get('sa').src.forEach(x=>e.src.add(x)); S[s].delete('sa'); } });
+  return S;
+}
+function render(){
+  const S = compute(); let lo=0, hi=0;
+  ['L','R'].forEach(s=>{
+    const ul = document.getElementById('out'+s); let slo=0, shi=0;
+    const keys=[...S[s].keys()].sort((a,b)=>M[b].hi-M[a].hi);
+    ul.innerHTML = keys.length ? keys.map(k=>{ const m=M[k]; slo+=m.lo; shi+=m.hi;
+      return `<li><span>${m.n}</span><span class="num">${m.lo}–${m.hi} U</span><span class="src">${m.p} 点 · 单点 ${m.u} U · 依据：${[...S[s].get(k).src].join('、')}</span></li>`; }).join('')
+      : '<li class="empty">无</li>';
+    document.getElementById('sum'+s).textContent = keys.length?`${slo}–${shi} U`:'';
+    lo+=slo; hi+=shi;
+  });
+  document.getElementById('tot').textContent = hi? `${lo}–${hi}` : '—';
+  const W=[]; const has=(s,k)=>S[s].has(k); const both=k=>has('L',k)&&has('R',k);
+  if(both('scm')) W.push(['dg','双侧胸锁乳突肌：合计 ≤ 100 U，首次每侧 ≤ 25 U，吞咽困难风险明显增加。']);
+  if(has('L','lco')||has('R','lco')||has('L','lca')||has('R','lca')||has('L','sh')||has('R','sh')) W.push(['dg','含颈前深部或颏下肌群：吞咽困难风险高，建议浓配小容量，必要时分次注射。']);
+  if(both('spc')&&both('ssc')) W.push(['','双侧头夹肌 + 头半棘肌：两组不同时取上限，以防抬头无力。']);
+  if(['oci','lco','lca','scal','sa','rcp'].some(k=>has('L',k)||has('R',k))) W.push(['','含深部小肌肉（头下斜肌、颈长肌、斜角肌等）：须超声（± 肌电）平面内引导，浓配 10 U/0.1 mL。']);
+  if(hi>300) W.push(['dg',`上限合计 ${hi} U 超过单次 300 U：按主次排序，主要责任肌取中位剂量，次要肌取下限或暂缓。`]);
+  if(lo>200) W.push(['dg',`下限合计 ${lo} U 已超过初治推荐量 200 U：精简肌肉或分次治疗。`]);
+  document.getElementById('warns').innerHTML = W.map(([c,t])=>`<div class="callout ${c}">${t}</div>`).join('');
+}
+document.getElementById('patForm').addEventListener('change',render);
+document.getElementById('clearBtn').addEventListener('click',()=>{ P.forEach(p=>{ const r=document.getElementById(`p-${p.id}-0`); if(r) r.checked=true; }); render(); });
+render();
+
+/* ---------- 超声示意图 ---------- */
+const IX=180, IY=30, IW=400, IH=340;
+function geo(o,c){
+  if(o.d) return `<path class="${c}" d="${o.d}"/>`;
+  if(o.r!=null) return `<circle class="${c}" cx="${o.cx}" cy="${o.cy}" r="${o.r}"/>`;
+  return `<ellipse class="${c}" cx="${o.cx}" cy="${o.cy}" rx="${o.rx}" ry="${o.ry}"/>`;
+}
+function shape(o){
+  switch(o.k){
+    case 'm': return geo(o,'u-m')+geo(o,'u-fib');
+    case 'thin': return `<path class="u-thin" d="${o.d}"/>`;
+    case 'g': return geo(o,'u-g');
+    case 'a': return geo(o,'u-a');
+    case 'v': return geo(o,'u-v');
+    case 'n': { let s=`<circle class="u-n" cx="${o.cx}" cy="${o.cy}" r="${o.r}"/>`;
+      if(o.r>=6){ const q=o.r*0.38; s+=`<circle class="u-nf" cx="${o.cx-q}" cy="${o.cy-q*0.4}" r="${o.r*0.22}"/><circle class="u-nf" cx="${o.cx+q}" cy="${o.cy-q*0.2}" r="${o.r*0.2}"/><circle class="u-nf" cx="${o.cx}" cy="${o.cy+q}" r="${o.r*0.2}"/>`; }
+      return s; }
+    case 'bone': return `<path class="u-sh" d="${o.sd}"/><path class="u-bone" d="${o.d}"/>`;
+    case 'trach': return [1,2,3].map(i=>`<path class="u-rev" d="${o.d}" transform="translate(${-10*i},0)" opacity="${0.75-0.2*i}"/>`).join('')+`<path class="u-bone" d="${o.d}"/>`;
+    case 'eso': return `<ellipse class="u-eso" cx="${o.cx}" cy="${o.cy}" rx="${o.rx}" ry="${o.ry}"/><ellipse class="u-esoin" cx="${o.cx}" cy="${o.cy}" rx="${o.rx*0.42}" ry="${o.ry*0.3}"/>`;
+    case 'pl': return `<path class="u-aline" d="${o.d}" transform="translate(0,120)" opacity=".45"/><path class="u-aline" d="${o.d}" transform="translate(0,60)" opacity=".7"/><path class="u-pl" d="${o.d}"/>`;
+  }
+  return '';
+}
+function labelSvg(l){
+  const L = l.s==='L'; const ax = L?172:588, ex = L?IX:IX+IW, tx = L?166:594;
+  const cls = l.c==='tg'?'l-txt l-tg':l.c==='dg'?'l-txt l-dg':l.c==='bn'?'l-txt l-bn':'l-txt';
+  const lines = l.t.split('|');
+  const ty = l.ly - (lines.length-1)*7.5 + 4.5;
+  const tsp = lines.map((t,i)=>`<tspan x="${tx}" dy="${i?15:0}">${t}</tspan>`).join('');
+  return `<line class="l-out" x1="${ax}" y1="${l.ly}" x2="${ex}" y2="${l.ly}"/>`+
+    `<line class="l-in ${l.c}" x1="${ex}" y1="${l.ly}" x2="${l.x}" y2="${l.y}"/>`+
+    `<circle class="l-dot ${l.c}" cx="${l.x}" cy="${l.y}" r="2.6"/>`+
+    `<text class="${cls}" x="${tx}" y="${ty}" text-anchor="${L?'end':'start'}">${tsp}</text>`;
+}
+function diagram(g){
+  const pxcm = IH/g.depth;
+  let s = `<svg class="us" viewBox="0 0 760 400" role="img" aria-label="${g.title}超声示意图"><defs><clipPath id="clip-${g.id}"><rect x="${IX}" y="${IY}" width="${IW}" height="${IH}" rx="4"/></clipPath></defs>`;
+  s += `<text class="o-txt" x="${IX+2}" y="20">◀ ${g.o[0]}</text><text class="o-txt" x="${IX+IW-2}" y="20" text-anchor="end">${g.o[1]} ▶</text><rect class="o-probe" x="${IX+IW/2-34}" y="15" width="68" height="9" rx="3"/>`;
+  s += `<g clip-path="url(#clip-${g.id})"><rect class="u-base" x="${IX}" y="${IY}" width="${IW}" height="${IH}"/><rect class="u-fat" x="${IX}" y="${IY+5}" width="${IW}" height="${g.fat}"/><rect class="u-lob" x="${IX}" y="${IY+5}" width="${IW}" height="${g.fat}"/><rect class="u-skin" x="${IX}" y="${IY}" width="${IW}" height="5"/>`;
+  s += g.sh.map(shape).join('');
+  s += `<rect x="${IX}" y="${IY}" width="${IW}" height="${IH}" filter="url(#speck)" opacity=".3" fill="#000"/><rect x="${IX}" y="${IY}" width="${IW}" height="${IH}" fill="url(#atten)"/>`;
+  s += g.sh.filter(o=>o.tg).map(o=>geo(o,'u-tg')).join('');
+  if(g.nd){ const n=g.nd; s += `<line class="u-needle" x1="${n[0]}" y1="${n[1]}" x2="${n[2]}" y2="${n[3]}"/><circle class="u-tip" cx="${n[2]}" cy="${n[3]}" r="3.6"/>`; }
+  s += `<g class="u-scale">`;
+  for(let i=1;i<g.depth;i++){ const y=IY+i*pxcm; s+=`<line x1="${IX+IW-8}" y1="${y}" x2="${IX+IW}" y2="${y}"/><text x="${IX+IW-11}" y="${y+3.5}" text-anchor="end">${i}</text>`; }
+  s += `<text x="${IX+IW-4}" y="${IY+IH-6}" text-anchor="end">cm</text></g></g>`;
+  s += `<rect class="u-frame" x="${IX}" y="${IY}" width="${IW}" height="${IH}" rx="4"/>`;
+  s += g.lb.map(labelSvg).join('');
+  s += `<text class="o-txt" x="380" y="392" text-anchor="middle">上浅下深 · 示意图，非真实超声图像</text></svg>`;
+  return s;
+}
+const bone=(d,x1,x2)=>({k:'bone',d,sd:`${d} L${x2} 370 L${x1} 370Z`});
+
+const G = [
+{ id:'a', vid:'A', title:'颈前外侧 · C6 横断面（左颈）', depth:4, fat:14, o:['内侧（气管）','外侧'],
+  sh:[
+    {k:'thin',d:'M180 54 Q380 50 580 56'},
+    {k:'m',cx:255,cy:78,rx:70,ry:13},
+    {k:'m',cx:440,cy:92,rx:118,ry:25,tg:1},
+    {k:'g',d:'M182 96 Q260 92 330 104 Q322 160 292 196 Q240 200 196 180 Q186 140 182 96Z'},
+    {k:'trach',d:'M182 116 Q200 152 188 204'},
+    {k:'eso',cx:228,cy:222,rx:26,ry:15},
+    {k:'m',cx:300,cy:258,rx:52,ry:18,tg:1},
+    {k:'m',cx:392,cy:240,rx:30,ry:13},
+    {k:'m',cx:540,cy:225,rx:42,ry:22},
+    bone('M205 292 Q280 280 355 288',205,355),
+    bone('M425 268 Q450 252 480 262',425,480),
+    {k:'a',cx:385,cy:165,r:26},
+    {k:'v',cx:472,cy:138,rx:36,ry:19},
+    {k:'n',cx:418,cy:150,r:6},
+    {k:'a',cx:395,cy:292,r:9}
+  ],
+  nd:[580,120,330,252],
+  lb:[
+    {t:'颈阔肌',x:230,y:53,ly:52,s:'L',c:'ot'},
+    {t:'舌骨下肌群',x:240,y:80,ly:82,s:'L',c:'ot'},
+    {t:'甲状腺',x:252,y:150,ly:132,s:'L',c:'ot'},
+    {t:'气管',x:190,y:165,ly:170,s:'L',c:'bn'},
+    {t:'食管',x:228,y:222,ly:212,s:'L',c:'dg'},
+    {t:'颈长肌',x:290,y:258,ly:256,s:'L',c:'tg'},
+    {t:'椎体前缘',x:282,y:285,ly:300,s:'L',c:'bn'},
+    {t:'胸锁乳突肌',x:505,y:92,ly:68,s:'R',c:'tg'},
+    {t:'颈内静脉',x:492,y:132,ly:112,s:'R',c:'dg'},
+    {t:'迷走神经',x:422,y:154,ly:162,s:'R',c:'dg'},
+    {t:'颈总动脉',x:400,y:172,ly:192,s:'R',c:'dg'},
+    {t:'前斜角肌',x:552,y:226,ly:222,s:'R',c:'ot'},
+    {t:'头长肌',x:404,y:240,ly:250,s:'R',c:'ot'},
+    {t:'C6 前结节',x:455,y:258,ly:280,s:'R',c:'bn'},
+    {t:'椎动脉',x:395,y:296,ly:316,s:'R',c:'dg'}
+  ],
+  probe:'仰卧，头略转向对侧。线阵探头横置于环状软骨水平（约 C6），自气管向外侧滑动。',
+  steps:['找到气管（弧形强回声伴混响）和两侧甲状腺。','向外侧找到颈总动脉（圆形、搏动、不可压闭）和其外侧浅面的颈内静脉（可压闭）。','两者浅面的梭形低回声肌即胸锁乳突肌。','颈总动脉深面内侧、椎体前缘强回声线之上为颈长肌；其外侧为头长肌。C6 前结节（Chassaignac 结节）是最突出的横突前结节，可作定位标志。','彩色多普勒查看甲状腺下动脉与椎动脉位置。'],
+  inj:'胸锁乳突肌：平面外，进针 0.5–1.5 cm，上 1/3、中 1/3 各 1 点，勿深达颈动脉鞘。颈长肌：平面内，浓配，单点 10–20 U。入路一：探头适度加压把颈总动脉推向外侧，于甲状腺与颈总动脉之间进针；入路二（图示）：外侧进针，经颈动脉鞘深面到达颈长肌。尽量选 C5–C6 水平，避开 C7 水平横突前方的椎动脉。',
+  risk:'颈总动脉、颈内静脉、迷走神经、甲状腺及甲状腺下动脉、食管（左侧更明显）、椎动脉、喉返神经。'
+},
+{ id:'b', vid:'B', title:'肌间沟 · C6 横断面', depth:3.5, fat:14, o:['内侧 / 前','外侧 / 后'],
+  sh:[
+    {k:'m',d:'M180 54 Q270 50 350 66 Q270 92 180 90Z'},
+    {k:'m',cx:300,cy:152,rx:38,ry:30,tg:1},
+    {k:'m',cx:472,cy:165,rx:70,ry:40,tg:1},
+    {k:'m',cx:540,cy:240,rx:40,ry:22,tg:1},
+    {k:'m',cx:225,cy:240,rx:40,ry:16},
+    bone('M300 248 Q320 232 345 240',300,345),
+    bone('M405 245 Q440 236 470 252',405,470),
+    {k:'v',cx:430,cy:57,rx:11,ry:6},
+    {k:'v',cx:212,cy:122,rx:30,ry:17},
+    {k:'a',cx:200,cy:170,r:22},
+    {k:'n',cx:292,cy:118,r:4},
+    {k:'n',cx:368,cy:120,r:9},
+    {k:'n',cx:376,cy:150,r:10},
+    {k:'n',cx:382,cy:182,r:10}
+  ],
+  nd:[580,62,482,160],
+  lb:[
+    {t:'胸锁乳突肌',x:250,y:70,ly:66,s:'L',c:'ot'},
+    {t:'颈内静脉',x:212,y:122,ly:108,s:'L',c:'dg'},
+    {t:'膈神经',x:292,y:118,ly:140,s:'L',c:'dg'},
+    {t:'颈总动脉',x:200,y:172,ly:174,s:'L',c:'dg'},
+    {t:'前斜角肌',x:300,y:160,ly:206,s:'L',c:'tg'},
+    {t:'颈长肌 / 头长肌',x:225,y:240,ly:244,s:'L',c:'ot'},
+    {t:'横突前结节',x:322,y:236,ly:284,s:'L',c:'bn'},
+    {t:'颈外静脉',x:432,y:57,ly:46,s:'R',c:'dg'},
+    {t:'臂丛神经根|C5–C7（"红绿灯"）',x:378,y:150,ly:108,s:'R',c:'dg'},
+    {t:'中斜角肌',x:495,y:168,ly:166,s:'R',c:'tg'},
+    {t:'后斜角肌',x:548,y:240,ly:226,s:'R',c:'tg'},
+    {t:'横突后结节',x:440,y:240,ly:270,s:'R',c:'bn'}
+  ],
+  probe:'仰卧或坐位，头转向对侧。自 C6 水平颈动脉外侧向外滑动；或先在锁骨上窝找到臂丛"葡萄串"，再向上追踪至肌间沟。',
+  steps:['前、中斜角肌之间纵向排列的 2–3 个圆形低回声为臂丛神经根（"红绿灯"征）。','神经根前内侧为前斜角肌，其表面细小圆形低回声为膈神经。','神经根后外侧、体积较大者为中斜角肌；更后外下方为后斜角肌。','底部强回声为横突前、后结节，神经根从两结节之间穿出。'],
+  inj:'平面内由外向内进针。中、后斜角肌单点 5–15 U，浓配；注射前斜角肌时针道不得穿越神经根间隙。每肌 1 点。',
+  risk:'臂丛（误注致上肢无力）、膈神经（膈肌麻痹）、颈内静脉、颈外静脉、椎动脉；低位注射接近胸膜。'
+},
+{ id:'c', vid:'C', title:'颈后外侧（颈后三角）· C4–C5 横断面', depth:4, fat:14, o:['前','后'],
+  sh:[
+    {k:'m',d:'M180 52 Q240 50 300 62 Q240 82 180 84Z'},
+    {k:'m',d:'M440 52 Q520 49 580 50 L580 70 Q510 72 440 60Z'},
+    {k:'m',d:'M290 82 Q430 66 580 74 L580 118 Q430 126 300 100Z',tg:1},
+    {k:'m',cx:390,cy:162,rx:78,ry:30,tg:1},
+    {k:'m',cx:235,cy:175,rx:52,ry:34},
+    {k:'m',cx:540,cy:180,rx:48,ry:40},
+    {k:'m',cx:470,cy:225,rx:36,ry:20},
+    bone('M250 258 Q360 245 470 262',250,470),
+    {k:'n',cx:350,cy:125,r:5}
+  ],
+  nd:[580,95,395,162],
+  lb:[
+    {t:'胸锁乳突肌（后缘）',x:230,y:68,ly:62,s:'L',c:'ot'},
+    {t:'副神经',x:350,y:125,ly:122,s:'L',c:'dg'},
+    {t:'中 / 后斜角肌',x:235,y:178,ly:182,s:'L',c:'ot'},
+    {t:'横突后结节 / 关节柱',x:330,y:250,ly:272,s:'L',c:'bn'},
+    {t:'斜方肌',x:520,y:60,ly:50,s:'R',c:'ot'},
+    {t:'头夹肌',x:470,y:98,ly:94,s:'R',c:'tg'},
+    {t:'肩胛提肌',x:405,y:168,ly:140,s:'R',c:'tg'},
+    {t:'头半棘肌',x:548,y:185,ly:188,s:'R',c:'ot'},
+    {t:'头最长肌',x:472,y:228,ly:238,s:'R',c:'ot'}
+  ],
+  probe:'坐位。探头横置于颈后三角中部（C4–C5），位于胸锁乳突肌后缘与斜方肌前缘之间。',
+  steps:['浅层：前方为胸锁乳突肌后缘，后方为斜方肌。','其深面斜行的宽带状肌为头夹肌（颈夹肌位于其外下方深面）。','再深一层较厚的椭圆形肌为肩胛提肌。','肩胛提肌前方深层为中、后斜角肌；后内侧为头半棘肌、头最长肌；底部强回声为横突后结节 / 关节柱。','动态确认：耸肩时肩胛提肌增厚；向同侧转头时头夹肌收缩。'],
+  inj:'平面内由后向前进针。肩胛提肌在颈段 1 点 + 肩胛上角附近 1 点（单点 15–30 U）；头夹肌沿肌腹 2–3 点。',
+  risk:'副神经（走行于肩胛提肌浅面，误伤可致斜方肌无力）、颈横动脉（低位）；避免向前深入斜角肌和臂丛；低位注射接近肺尖。'
+},
+{ id:'d', vid:'D', title:'颈后正中旁 · C3 横断面（左侧）', depth:5, fat:22, o:['内侧（中线）','外侧'],
+  sh:[
+    {k:'thin',d:'M184 60 L186 146'},
+    {k:'m',d:'M188 60 Q380 56 580 62 L580 80 Q380 78 188 74Z'},
+    {k:'m',d:'M204 84 Q390 76 580 86 L580 128 Q390 132 208 112Z',tg:1},
+    {k:'m',d:'M208 118 Q380 136 560 134 Q565 170 548 196 Q380 200 210 186Z',tg:1},
+    {k:'thin',d:'M240 152 Q330 162 420 160'},
+    {k:'m',d:'M210 192 Q340 204 470 200 Q468 226 450 242 Q330 244 210 236Z',tg:1},
+    {k:'m',d:'M210 242 Q320 248 420 246 Q420 266 400 278 Q300 282 210 280Z'},
+    {k:'m',cx:520,cy:225,rx:46,ry:28},
+    bone('M180 148 Q198 150 206 172',180,206),
+    bone('M208 292 Q330 286 470 272 Q520 266 570 270',208,570),
+    {k:'n',cx:318,cy:192,r:5},
+    {k:'a',cx:400,cy:196,r:5}
+  ],
+  nd:[580,45,400,160],
+  lb:[
+    {t:'项韧带',x:185,y:100,ly:96,s:'L',c:'bn'},
+    {t:'棘突',x:194,y:152,ly:150,s:'L',c:'bn'},
+    {t:'枕大神经',x:318,y:192,ly:200,s:'L',c:'dg'},
+    {t:'多裂肌',x:300,y:262,ly:258,s:'L',c:'ot'},
+    {t:'椎板',x:300,y:289,ly:306,s:'L',c:'bn'},
+    {t:'斜方肌',x:480,y:70,ly:58,s:'R',c:'ot'},
+    {t:'头夹肌',x:480,y:106,ly:100,s:'R',c:'tg'},
+    {t:'头半棘肌（见腱划）',x:480,y:168,ly:144,s:'R',c:'tg'},
+    {t:'颈深动脉',x:400,y:196,ly:182,s:'R',c:'dg'},
+    {t:'颈半棘肌',x:440,y:222,ly:212,s:'R',c:'tg'},
+    {t:'头最长肌',x:530,y:232,ly:244,s:'R',c:'ot'},
+    {t:'关节柱',x:540,y:268,ly:284,s:'R',c:'bn'}
+  ],
+  probe:'坐位低头前倾或俯卧。探头横置于 C3 棘突旁 1–3 cm。',
+  steps:['中线处找到棘突（强回声伴声影）和其浅面的项韧带。','由浅入深辨认"四层"：斜方肌（此水平较薄）→ 头夹肌 → 头半棘肌（最厚，内有腱划强回声线）→ 颈半棘肌、多裂肌。','底部为椎板强回声线，向外延续为关节柱。','头半棘肌外侧为头最长肌。头半棘肌与颈半棘肌之间可见颈深动脉和枕大神经。'],
+  inj:'平面内由外向内进针。同一针道可分层给药：先深层（颈半棘肌）后浅层（头半棘肌、头夹肌），每层剂量分别计数。针尖始终在椎板浅面。',
+  risk:'颈深动脉、枕大神经；不得越过椎板间隙进入椎管；双侧大剂量致抬头无力。'
+},
+{ id:'e', vid:'E', title:'头下斜肌 · C1–C2 斜切面', depth:4.5, fat:20, o:['内侧（C2 棘突）','外侧（C1 横突）'],
+  sh:[
+    {k:'m',d:'M180 58 Q300 56 400 60 L400 68 Q300 70 180 70Z'},
+    {k:'m',d:'M410 60 Q500 56 580 60 L580 112 Q500 118 438 112 Q444 84 410 60Z'},
+    {k:'m',d:'M205 74 Q320 70 428 78 Q438 120 420 150 Q320 158 214 146Z'},
+    {k:'m',cx:530,cy:145,rx:50,ry:22},
+    {k:'m',d:'M212 232 Q380 168 556 186 Q392 250 212 248Z',tg:1},
+    bone('M180 222 Q196 226 208 246',180,208),
+    bone('M212 272 Q320 266 420 262',212,420),
+    bone('M548 214 Q565 208 580 214',548,580),
+    {k:'n',cx:420,cy:176,r:6},
+    {k:'a',cx:492,cy:258,r:11}
+  ],
+  nd:[180,42,360,212],
+  lb:[
+    {t:'斜方肌',x:250,y:64,ly:58,s:'L',c:'ot'},
+    {t:'头半棘肌',x:300,y:112,ly:106,s:'L',c:'ot'},
+    {t:'头下斜肌',x:290,y:218,ly:168,s:'L',c:'tg'},
+    {t:'C2 棘突',x:194,y:226,ly:222,s:'L',c:'bn'},
+    {t:'C2 椎板（骨性屏障）',x:320,y:268,ly:288,s:'L',c:'bn'},
+    {t:'头夹肌',x:500,y:85,ly:74,s:'R',c:'ot'},
+    {t:'枕大神经',x:424,y:176,ly:118,s:'R',c:'dg'},
+    {t:'头最长肌',x:535,y:148,ly:162,s:'R',c:'ot'},
+    {t:'C1 横突',x:565,y:211,ly:204,s:'R',c:'bn'},
+    {t:'椎动脉（V3 段）',x:496,y:262,ly:258,s:'R',c:'dg'}
+  ],
+  probe:'俯卧或坐位低头。先在中线找到 C2 棘突（颈部第一个粗大、分叉的棘突），探头内侧端固定于 C2 棘突，外侧端向上外旋转，指向乳突下方的 C1 横突。',
+  steps:['深层连接 C2 棘突与 C1 横突的梭形肌即头下斜肌。','其浅面内侧为头半棘肌，外侧为头夹肌、头最长肌。','枕大神经在头下斜肌浅面、头半棘肌深面横过。','头下斜肌外侧深面、C1 横突附近为椎动脉，进针前必须用彩色多普勒确认。','动态确认：嘱患者向同侧转头，头下斜肌收缩增厚。'],
+  inj:'平面内由内向外进针，针尖停在肌腹中内 1/3，深面有 C2 椎板作骨性屏障。1 点，单点 10–25 U，浓配。',
+  risk:'椎动脉 V3 段（外侧深面）、枕大神经；勿越过骨面向深部进针。'
+},
+{ id:'f', vid:'F', title:'肩上部 · 斜方肌上部矢状切面', depth:4, fat:16, o:['前（锁骨侧）','后（肩胛冈侧）'],
+  sh:[
+    {k:'m',d:'M180 54 Q380 50 580 56 L580 106 Q380 98 180 84Z',tg:1},
+    {k:'m',d:'M340 106 Q460 100 580 112 L580 196 Q460 204 360 190 Q330 150 340 106Z'},
+    bone('M200 178 Q235 168 270 176',200,270),
+    {k:'pl',d:'M272 200 Q305 196 335 204'},
+    bone('M360 216 Q470 206 580 214',360,580),
+    {k:'a',cx:300,cy:130,r:6}
+  ],
+  nd:[580,60,420,76],
+  lb:[
+    {t:'斜方肌（上部）',x:300,y:72,ly:66,s:'L',c:'tg'},
+    {t:'颈横动脉浅支',x:300,y:130,ly:124,s:'L',c:'dg'},
+    {t:'第 1 肋',x:235,y:172,ly:176,s:'L',c:'bn'},
+    {t:'胸膜线 / 肺尖',x:305,y:199,ly:216,s:'L',c:'dg'},
+    {t:'A 线（混响伪像）',x:305,y:260,ly:262,s:'L',c:'bn'},
+    {t:'冈上肌',x:480,y:150,ly:150,s:'R',c:'ot'},
+    {t:'冈上窝骨面',x:480,y:210,ly:226,s:'R',c:'bn'}
+  ],
+  probe:'坐位。探头置于 C7 棘突与肩峰连线中点，矢状位或沿肌纤维横置。',
+  steps:['皮下脂肪深面的带状低回声即斜方肌上部。','后方深面为冈上肌及冈上窝骨面（强回声伴声影）。','前方深面可见第 1 肋强回声，以及胸膜线（呼吸时"肺滑动"，下方等距 A 线）。'],
+  inj:'平面内浅进针，针尖保持在斜方肌内（一般深度 < 1.5 cm）；沿肌腹 2–4 点分散，单点 10–25 U。',
+  risk:'气胸：锁骨上区深进针，消瘦患者尤需注意；看到胸膜线即不再向深部进针。颈横动脉浅支。'
+}
+];
+
+/* ---------- 真实超声图（开放许可文献）+ 中文标注 ---------- */
+const CR = {
+  sch:'引自 Schramm A, et al. J Neural Transm 2015;122(10):1457–1463, Fig. 1（CC BY 4.0），已裁切并添加中文标注。',
+  far:'引自 Farrell M, et al. Toxins 2020;12(10):626, Fig. 2b（CC BY 4.0），已裁切、遮盖设备信息与插图并添加中文标注。',
+  bru2:'引自 Brumpt E, et al. Surg Radiol Anat 2021;43(6):909–915, Fig. 2B（CC BY 4.0），已裁切并添加中文标注；蓝色高亮为原图所有。',
+  bru3:'引自 Brumpt E, et al. Surg Radiol Anat 2021;43(6):909–915, Fig. 3B（CC BY 4.0），已裁切并添加中文标注；蓝色高亮为原图所有。',
+  bru2m:'引自 Brumpt E, et al. Surg Radiol Anat 2021;43(6):909–915, Fig. 2A（CC BY 4.0），已裁切并添加中文标注；蓝色高亮为原图所有。',
+  bru3m:'引自 Brumpt E, et al. Surg Radiol Anat 2021;43(6):909–915, Fig. 3A（CC BY 4.0），已裁切并添加中文标注；蓝色高亮为原图所有。',
+  g384:'Gray H. Anatomy of the Human Body, 1918, Fig. 384（公有领域）；中文标注版来自 Wikimedia Commons（Gray384_zh.png）。',
+  g385:'Gray H. Anatomy of the Human Body, 1918, Fig. 385（公有领域），经 Wikimedia Commons；已添加中文标注。',
+  glc:'Gray H. Anatomy of the Human Body, 1918, Fig. 387；颈长肌高亮版由 Helgo13 修改（公有领域），经 Wikimedia Commons；已添加中文标注。',
+  goci:'源自 Gray H. Anatomy of the Human Body, 1918 背深肌图；头下斜肌高亮版由 Helgo13 修改（公有领域），经 Wikimedia Commons；已添加中文标注。',
+  g389:'Gray H. Anatomy of the Human Body, 1918, Fig. 389（公有领域），经 Wikimedia Commons；已裁切颈部并添加中文标注。',
+  bru1:'引自 Brumpt E, et al. Surg Radiol Anat 2021;43(6):909–915, Fig. 1（CC BY 4.0），已裁切并添加中文标注。',
+  sca:'Frank Scali（Dreviscerator），Wikimedia Commons，CC BY-SA 3.0；已添加中文标注，本修改版同样以 CC BY-SA 3.0 提供。',
+  wal:'引自 Walter U, et al. Front Neurol 2018;9:805, Fig. 1A（CC BY 4.0），已裁切并添加中文标注。'
+};
+const PHOTOS = {
+  farrell_b:{w:540,h:330,fs:12,cr:'far',cap:'颈长肌 / 头长肌 · C5 横断面',
+    note:'白色箭头为平面外进针路径，针尖指向颈长肌；内侧为受压的颈内静脉和颈总动脉，外侧为 C5 横突前、后结节及其声影。',
+    lb:[{t:'平面外进针路径',x:165,y:34,c:'nd'},{t:'胸锁乳突肌',x:113,y:68,c:'tg'},{t:'胸锁乳突肌',x:300,y:62,c:'tg'},
+        {t:'颈内静脉（受压）',x:78,y:136,c:'dg'},{t:'颈总动脉',x:68,y:185,c:'dg'},{t:'头长肌',x:232,y:140,c:'tg'},
+        {t:'颈长肌',x:178,y:198,c:'tg'},{t:'C5 神经根',x:292,y:127,c:'dg'},{t:'后结节',x:322,y:155,c:'bn'},
+        {t:'前结节',x:258,y:172,c:'bn'},{t:'横突声影',x:288,y:195,c:'bn'}]},
+  schramm_C:{w:177,h:215,fs:7,maxw:400,cr:'sch',cap:'颈前深层 · 颈长肌、头长肌',
+    note:'颈总动脉后外侧、C5 椎体前方为颈长肌，其外上方为头长肌；迷走神经位于颈总动脉旁，C5 神经根在外侧。',
+    lb:[{t:'胸锁乳突肌',x:88,y:37,c:'tg'},{t:'迷走神经',x:78,y:73,c:'dg'},{t:'颈总动脉',x:40,y:93,c:'dg'},
+        {t:'头长肌',x:108,y:87,c:'tg'},{t:'C5 神经根',x:144,y:110,c:'dg',cw:46,ch:13},{t:'C5 椎体',x:110,y:130,c:'bn'},{t:'颈长肌',x:55,y:145,c:'tg'}]},
+  schramm_A:{w:811,h:281,fs:17,minw:560,cr:'sch',cap:'颈外侧全景（前 → 后）',
+    note:'从前向后依次为舌骨下肌群、胸锁乳突肌、颈总动脉、前斜角肌、臂丛（箭头）、中/后斜角肌、肩胛提肌、斜方肌。',
+    lb:[{t:'舌骨下肌群',x:62,y:138,c:'ot'},{t:'胸锁乳突肌',x:178,y:95,c:'tg'},{t:'颈总动脉',x:168,y:170,c:'dg'},
+        {t:'前斜角肌',x:322,y:110,c:'tg'},{t:'中/后斜角肌',x:485,y:108,c:'tg'},{t:'臂丛',x:420,y:236,c:'dg'},
+        {t:'肩胛提肌',x:622,y:180,c:'tg'},{t:'斜方肌',x:722,y:192,c:'ot'}]},
+  walter_A:{w:512,h:414,fs:15,cr:'wal',cap:'颈外侧横断面 · 斜角肌与颈部神经',
+    note:'粗箭头示迷走神经（颈总动脉与颈内静脉之间），细箭头示膈神经（斜角肌表面），三角箭头示副神经（肩胛提肌浅面）。',
+    lb:[{t:'胸锁乳突肌',x:188,y:72,c:'tg',cw:112,ch:38},{t:'迷走神经',x:62,y:112,c:'dg'},{t:'颈内静脉',x:133,y:170,c:'dg',cw:72,ch:42},
+        {t:'颈总动脉',x:62,y:250,c:'dg'},{t:'斜角肌',x:290,y:163,c:'tg',cw:88,ch:40},{t:'膈神经',x:388,y:150,c:'dg'},
+        {t:'副神经',x:448,y:60,c:'dg'},{t:'肩胛提肌',x:472,y:135,c:'tg',cw:70,ch:36}]},
+  brumpt3_B:{w:749,h:321,fs:18,cr:'bru3',cap:'颈后外侧 · C4–C5 横断面',
+    note:'蓝色高亮为颈夹肌，位于头夹肌深面；左侧为肩胛提肌。',
+    lb:[{t:'肩胛提肌',x:110,y:135,c:'tg'},{t:'头夹肌',x:555,y:100,c:'ot'},{t:'颈夹肌',x:410,y:165,c:'tg'}]},
+  brumpt2_B:{w:749,h:394,fs:18,cr:'bru2',cap:'颈后 · 枢椎齿突水平横断面',
+    note:'由浅入深：胸锁乳突肌 → 头夹肌 → 头最长肌（蓝色高亮）。',
+    lb:[{t:'胸锁乳突肌',x:355,y:82,c:'ot'},{t:'头夹肌',x:408,y:122,c:'tg'},{t:'头最长肌',x:418,y:182,c:'tg'}]},
+  brumpt2_A:{w:749,h:505,fs:17,cr:'bru2m',cap:'MRI 对照 · 枢椎齿突水平（T1 轴位）',
+    note:'与上方超声为同一水平。外侧由浅入深：胸锁乳突肌 → 头夹肌 → 头最长肌（蓝色）；后内侧为头半棘肌。按影像学惯例，图像右侧为患者左侧。',
+    lb:[{t:'胸锁乳突肌',x:680,y:232,c:'ot',px:656,py:283},{t:'头夹肌',x:648,y:340,c:'tg',px:615,py:292},
+        {t:'头最长肌',x:540,y:220,c:'tg',px:590,py:272},{t:'头半棘肌',x:510,y:371,c:'tg',cw:80}]},
+  brumpt3_A:{w:749,h:432,fs:17,cr:'bru3m',cap:'MRI 对照 · C5 水平（T1 轴位）',
+    note:'与上方超声为同一水平。颈夹肌（蓝色）位于头夹肌深面、肩胛提肌内后方。按影像学惯例，图像右侧为患者左侧。',
+    lb:[{t:'肩胛提肌',x:648,y:171,c:'tg',cw:84},{t:'头夹肌',x:539,y:304,c:'ot',cw:66},{t:'颈夹肌',x:498,y:200,c:'tg',px:585,py:232}]},
+  gray384zh:{w:512,h:600,fs:14,maxw:460,ext:'png',cr:'g384',cap:'解剖对照 · C6 水平颈部横断面',
+    note:'与超声横断面方向一致，可看清由浅入深的层次：胸锁乳突肌 → 颈动脉鞘（颈总动脉、颈内静脉、迷走神经）→ 前、中斜角肌 → 肩胛提肌、颈夹肌 → 颈后肌群；最外后方为斜方肌。图为左半侧，右缘为中线。',
+    lb:[]},
+  graylcol:{w:443,h:600,fs:13,maxw:460,ext:'png',cr:'glc',cap:'解剖对照 · 椎前肌群（前面观）',
+    note:'颈长肌（右侧红色高亮）贴附于颈椎椎体前面，头长肌位于其外上方；前、中、后斜角肌由颈椎横突走向第 1、2 肋。超声 A 切面中颈长肌位于颈总动脉深面、椎体前方即此关系。',
+    lb:[{t:'头长肌',x:175,y:165,c:'tg'},{t:'颈长肌',x:183,y:330,c:'tg'},{t:'颈长肌（高亮）',x:322,y:212,c:'tg',px:256,py:262},
+        {t:'前斜角肌',x:120,y:395,c:'tg'},{t:'中斜角肌',x:333,y:370,c:'tg'},{t:'后斜角肌',x:382,y:452,c:'tg'}]},
+  gray385:{w:553,h:593,fs:14,maxw:520,ext:'png',cr:'g385',cap:'解剖对照 · 颈部肌肉侧面观',
+    note:'胸锁乳突肌斜跨颈侧；其后方颈后三角的底由上而下依次为头夹肌、肩胛提肌、中斜角肌、前斜角肌；最后方为斜方肌。超声 B、C 切面即在此区域横扫。',
+    lb:[{t:'胸锁乳突肌',x:268,y:287,c:'tg'},{t:'头夹肌',x:350,y:235,c:'tg'},{t:'肩胛提肌',x:326,y:330,c:'tg'},
+        {t:'中斜角肌',x:378,y:398,c:'tg',px:313,py:405},{t:'前斜角肌',x:222,y:455,c:'tg',px:287,py:415},{t:'斜方肌',x:450,y:445,c:'ot'},
+        {t:'肩胛舌骨肌',x:405,y:488,c:'ot',px:345,py:462},{t:'胸骨舌骨肌',x:150,y:360,c:'ot'},{t:'乳突',x:310,y:110,c:'bn',cw:60},{t:'锁骨',x:310,y:506,c:'bn',cw:60}]},
+  bru1A:{w:644,h:660,fs:20,maxw:520,cr:'bru1',cap:'尸体解剖 · 颈后外侧（左侧）',
+    note:'去除浅层肌后可见：头最长肌（1）、颈夹肌（2）、肩胛提肌（3）与头半棘肌（4）的相邻关系；6 为胸锁乳突肌。',
+    lb:[{t:'4 头半棘肌',x:470,y:150,c:'tg',px:300,py:178},{t:'1 头最长肌',x:92,y:190,c:'tg',px:200,py:207},
+        {t:'6 胸锁乳突肌',x:92,y:268,c:'ot',px:194,py:268},{t:'3 肩胛提肌',x:92,y:370,c:'tg',px:186,py:386},{t:'2 颈夹肌',x:92,y:452,c:'tg',px:211,py:436}]},
+  bru1B:{w:644,h:672,fs:20,maxw:520,cr:'bru1',cap:'尸体解剖 · 颈后外侧（右侧，已切除头夹肌）',
+    note:'头半棘肌（4）外侧为头最长肌（1，箭头示其肌内腱），其下方为颈最长肌（5）和肩胛提肌（3）。',
+    lb:[{t:'4 头半棘肌',x:110,y:280,c:'tg',px:255,py:318},{t:'1 头最长肌',x:525,y:270,c:'tg',px:370,py:322},
+        {t:'箭头：头最长肌肌内腱',x:500,y:385,c:'ot',px:337,py:378},{t:'5 颈最长肌',x:525,y:460,c:'ot',px:312,py:448},{t:'3 肩胛提肌',x:525,y:530,c:'tg',px:316,py:529}]},
+  gray389n:{w:370,h:340,fs:11,maxw:520,ext:'png',cr:'g389',cap:'解剖对照 · 颈后深层肌（后面观）',
+    note:'去除斜方肌、头夹肌后：头半棘肌纵贯颈后，其外侧为头最长肌，深面为颈半棘肌与多裂肌；枕下区可见头后大、小直肌及头上、下斜肌。',
+    lb:[{t:'枕骨',x:200,y:40,c:'bn',cw:110,ch:20},{t:'头上斜肌',x:55,y:95,c:'ot',px:146,py:100},{t:'头后小直肌',x:55,y:65,c:'ot',px:190,py:85},
+        {t:'头后大直肌',x:55,y:125,c:'ot',px:178,py:112},{t:'头下斜肌',x:166,y:138,c:'tg',cw:52},{t:'多裂肌',x:100,y:192,c:'ot',cw:90,ch:18},
+        {t:'头半棘肌',x:244,y:235,c:'tg'},{t:'头最长肌',x:300,y:195,c:'tg'},{t:'颈半棘肌',x:188,y:262,c:'tg'},
+        {t:'第 1 胸椎',x:85,y:288,c:'bn',cw:170,ch:18},{t:'第 1 肋',x:345,y:315,c:'bn',cw:50,ch:18}]},
+  grayoci:{w:435,h:435,fs:13,maxw:460,ext:'png',cr:'goci',cap:'解剖对照 · 头下斜肌（红色高亮）',
+    note:'头下斜肌由 C2 棘突斜向外上至 C1 横突，构成枕下三角下界，与超声 E 切面的探头方向一致；其浅面为头半棘肌，外侧为头最长肌。',
+    lb:[{t:'头后小直肌',x:330,y:22,c:'ot',px:204,py:55},{t:'头后大直肌',x:70,y:28,c:'ot',px:180,py:62},{t:'头上斜肌',x:70,y:60,c:'ot',px:150,py:62},
+        {t:'头下斜肌',x:90,y:140,c:'tg',px:172,py:103},{t:'头半棘肌',x:252,y:205,c:'tg'},{t:'头最长肌',x:330,y:120,c:'tg',px:292,py:160},
+        {t:'颈半棘肌',x:198,y:240,c:'tg'},{t:'颈最长肌',x:282,y:335,c:'ot'}]},
+  scali:{w:448,h:600,fs:12,maxw:440,cr:'sca',cap:'解剖示意 · 枕下三角',
+    note:'头后大直肌（1，蓝）、头上斜肌（2，绿）、头下斜肌（3，红）围成枕下三角，椎动脉 V3 段和枕下神经位于三角内。',
+    lb:[{t:'1  头后大直肌',x:116,y:519,c:'ot',cw:232,ch:17},{t:'2  头上斜肌',x:116,y:535,c:'ot',cw:232,ch:17},{t:'3  头下斜肌',x:116,y:551,c:'tg',cw:232,ch:17}]},
+  schramm_D:{w:183,h:215,fs:7,maxw:400,cr:'sch',cap:'枕下区 · 头后大 / 小直肌',
+    note:'头夹肌、头半棘肌深面，内侧为头后小直肌，外侧为头后大直肌。',
+    lb:[{t:'头夹肌',x:127,y:40,c:'ot'},{t:'头半棘肌',x:28,y:56,c:'tg',cw:44,ch:13},{t:'头后小直肌',x:40,y:107,c:'ot',ch:14},{t:'头后大直肌',x:132,y:95,c:'tg'}]},
+  schramm_E:{w:251,h:215,fs:7.5,maxw:460,cr:'sch',cap:'枕下外侧 · 头上斜肌',
+    note:'头夹肌、头最长肌深面为头上斜肌。',
+    lb:[{t:'头夹肌',x:24,y:37,c:'ot'},{t:'头最长肌',x:80,y:52,c:'ot'},{t:'头上斜肌',x:181,y:59,c:'ot',ch:14,cw:40}]},
+  schramm_B:{w:190,h:215,fs:7,maxw:420,cr:'sch',cap:'头下斜肌 · C1–C2 斜切面',
+    note:'头半棘肌、头夹肌、头最长肌深面的大块低回声肌即头下斜肌；右下角头像示意探头斜置方向。',
+    lb:[{t:'头夹肌',x:70,y:34,c:'ot',ch:13,cw:30},{t:'头半棘肌',x:27,y:58,c:'ot',cw:44,ch:13},{t:'头最长肌',x:146,y:58,c:'ot',ch:13,cw:38},{t:'头下斜肌',x:92,y:107,c:'tg'}]}
+};
+/* 结构轮廓（原图像素坐标；p = 多边形顶点，平滑闭合；e = 椭圆 [cx,cy,rx,ry]；b 类为骨面折线） */
+const RG = {
+  farrell_b:[
+    {n:'胸锁乳突肌',c:'tg',p:[[10,36],[200,32],[390,30],[390,62],[300,78],[240,95],[150,98],[60,96],[10,98]]},
+    {n:'颈内静脉（受压）',c:'v',p:[[12,128],[80,131],[150,137],[150,145],[80,142],[12,139]]},
+    {n:'颈总动脉',c:'a',e:[78,200,50,50]},
+    {n:'头长肌',c:'tg',p:[[182,118],[235,112],[262,128],[256,154],[220,162],[186,150]]},
+    {n:'颈长肌',c:'tg',p:[[150,166],[200,160],[236,170],[240,200],[215,224],[166,224],[146,200]]},
+    {n:'C5 神经根',c:'n',e:[285,135,9,8]},
+    {n:'前结节',c:'b',p:[[238,174],[254,166],[272,168]]},
+    {n:'后结节',c:'b',p:[[300,161],[318,154],[340,160]]}],
+  schramm_C:[
+    {n:'胸锁乳突肌',c:'tg',p:[[0,24],[177,22],[177,58],[90,60],[0,56]]},
+    {n:'颈总动脉',c:'a',e:[40,93,23,22]},
+    {n:'迷走神经',c:'n',e:[73,76,4,4]},
+    {n:'头长肌',c:'tg',e:[103,88,19,11]},
+    {n:'颈长肌',c:'tg',e:[58,140,32,19]},
+    {n:'C5 神经根',c:'n',e:[140,108,13,10]},
+    {n:'C5 椎体',c:'b',p:[[84,107],[100,101],[123,99]]}],
+  schramm_A:[
+    {n:'舌骨下肌群',c:'ot',p:[[0,116],[60,112],[120,120],[112,145],[50,150],[0,150]]},
+    {n:'胸锁乳突肌',c:'tg',p:[[100,96],[170,80],[260,70],[312,72],[290,90],[220,110],[150,125],[108,126]]},
+    {n:'颈总动脉',c:'a',e:[175,195,33,33]},
+    {n:'前斜角肌',c:'tg',e:[340,115,52,33]},
+    {n:'臂丛',c:'n',e:[415,135,14,22]},
+    {n:'中/后斜角肌',c:'tg',e:[505,122,72,44]},
+    {n:'肩胛提肌',c:'tg',e:[640,185,48,55]},
+    {n:'斜方肌',c:'ot',p:[[690,112],[780,140],[810,190],[805,240],[742,232],[702,172]]}],
+  walter_A:[
+    {n:'胸锁乳突肌',c:'tg',p:[[0,40],[120,38],[230,42],[300,55],[262,80],[200,105],[150,122],[90,135],[30,150],[0,150]]},
+    {n:'颈内静脉',c:'v',p:[[85,170],[110,148],[160,128],[188,122],[192,142],[172,180],[140,198],[105,198],[86,186]]},
+    {n:'颈总动脉',c:'a',e:[55,245,48,48]},
+    {n:'迷走神经',c:'n',e:[66,188,8,7]},
+    {n:'斜角肌',c:'tg',e:[295,188,60,70]},
+    {n:'膈神经',c:'n',e:[322,95,6,5]},
+    {n:'副神经',c:'n',e:[470,92,6,5]},
+    {n:'肩胛提肌',c:'tg',e:[468,165,52,85]}],
+  brumpt3_B:[
+    {n:'肩胛提肌',c:'tg',p:[[40,95],[200,95],[215,130],[205,190],[120,200],[40,190],[25,140]]},
+    {n:'头夹肌',c:'ot',p:[[320,95],[420,75],[560,72],[700,85],[700,125],[600,118],[480,112],[380,118]]},
+    {n:'颈夹肌',c:'tg',p:[[262,162],[300,140],[400,118],[500,115],[575,129],[500,160],[420,192],[360,198],[290,185]]}],
+  brumpt2_B:[
+    {n:'胸锁乳突肌',c:'ot',p:[[85,55],[300,52],[560,58],[708,70],[708,98],[560,96],[400,100],[250,102],[130,102],[88,92]]},
+    {n:'头夹肌',c:'tg',p:[[195,116],[350,106],[520,112],[650,125],[640,150],[500,150],[380,152],[260,152],[205,142]]},
+    {n:'头最长肌',c:'tg',e:[418,181,110,31]}],
+  schramm_D:[
+    {n:'头夹肌',c:'ot',p:[[0,12],[183,10],[183,55],[100,48],[0,40]]},
+    {n:'头半棘肌',c:'tg',p:[[0,42],[100,50],[183,58],[183,80],[100,84],[0,86]]},
+    {n:'头后小直肌',c:'ot',e:[48,108,45,16]},
+    {n:'头后大直肌',c:'tg',p:[[95,88],[183,82],[183,112],[120,118],[95,112]]}],
+  schramm_E:[
+    {n:'头夹肌',c:'ot',p:[[0,22],[110,20],[138,30],[110,46],[0,48]]},
+    {n:'头最长肌',c:'ot',e:[82,55,48,11]},
+    {n:'头上斜肌',c:'ot',e:[178,61,37,11]}],
+  schramm_B:[
+    {n:'头夹肌',c:'ot',p:[[0,18],[190,22],[190,48],[0,42]]},
+    {n:'头半棘肌',c:'ot',p:[[0,44],[110,50],[106,78],[0,80]]},
+    {n:'头最长肌',c:'ot',p:[[110,50],[190,50],[190,74],[120,78]]},
+    {n:'头下斜肌',c:'tg',p:[[0,82],[190,78],[190,122],[140,132],[70,140],[0,136]]}]
+};
+const PH = { a:['farrell_b','schramm_C','gray384zh','graylcol'], b:['schramm_A','walter_A','gray385'], c:['brumpt3_B','brumpt3_A','bru1A','bru1B'], d:['brumpt2_B','brumpt2_A','schramm_D','schramm_E','gray389n'], e:['schramm_B','grayoci','scali'], f:[] };
+const COL = {tg:'#5fe3ea',dg:'#ff9d90',ot:'#ffffff',bn:'#d4d4d4',nd:'#8af0a8'};
+const tw = (t,fs)=>{ let w=0; for(const ch of t) w += /[\u0000-ÿ]/.test(ch) ? fs*0.58 : fs; return w; };
+function smooth(p){
+  const n=p.length, f=v=>v.toFixed(1); let d=`M${p[0][0]} ${p[0][1]}`;
+  for(let i=0;i<n;i++){ const p0=p[(i-1+n)%n],p1=p[i],p2=p[(i+1)%n],p3=p[(i+2)%n];
+    d+=` C${f(p1[0]+(p2[0]-p0[0])/6)} ${f(p1[1]+(p2[1]-p0[1])/6)} ${f(p2[0]-(p3[0]-p1[0])/6)} ${f(p2[1]-(p3[1]-p1[1])/6)} ${p2[0]} ${p2[1]}`; }
+  return d+'Z';
+}
+const RCN = {tg:'常用靶肌',ot:'其他肌肉',a:'动脉',v:'静脉',n:'神经',b:'骨性标志'};
+function region(r){
+  const g = r.c==='b' ? `d="M${r.p.map(q=>q.join(' ')).join(' L')}"` : r.e ? `cx="${r.e[0]}" cy="${r.e[1]}" rx="${r.e[2]}" ry="${r.e[3]}"` : `d="${smooth(r.p)}"`;
+  const tag = (r.e && r.c!=='b') ? 'ellipse' : 'path';
+  return `<${tag} class="rh" data-n="${r.n}" ${g}/><${tag} class="r r-${r.c}" data-n="${r.n}" ${g}/>`;
+}
+function photo(key){
+  const p = PHOTOS[key], fs = p.fs, rg = RG[key]||[]; let ov='';
+  p.lb.forEach(l=>{ const c=COL[l.c], w=Math.max(tw(l.t,fs)+fs*0.8, l.cw||0), h=Math.max(fs*1.45, l.ch||0);
+    const ld = l.px!=null ? `<line x1="${l.x}" y1="${l.y}" x2="${l.px}" y2="${l.py}" stroke="#000" stroke-opacity=".6" stroke-width="${fs*0.26}"/><line x1="${l.x}" y1="${l.y}" x2="${l.px}" y2="${l.py}" stroke="${c}" stroke-width="${fs*0.12}"/><circle cx="${l.px}" cy="${l.py}" r="${fs*0.24}" fill="${c}" stroke="#000" stroke-width="${fs*0.06}"/>` : '';
+    ov += `<g class="lab" data-n="${l.t}">${ld}<rect x="${l.x-w/2}" y="${l.y-h/2}" width="${w}" height="${h}" rx="${fs*0.3}" fill="rgba(8,10,12,.92)" stroke="${c}" stroke-opacity=".7" stroke-width="${fs*0.08}"/>`+
+          `<text x="${l.x}" y="${l.y+fs*0.36}" text-anchor="middle" font-size="${fs}" fill="${c}">${l.t}</text></g>`; });
+  const st = `${p.minw?`min-width:${p.minw}px;`:''}${p.maxw?`max-width:${p.maxw}px;`:''}`;
+  const chips = rg.map(r=>`<button type="button" class="chip" data-n="${r.n}" aria-pressed="false"><i class="dot r-${r.c}"></i>${r.n}</button>`).join('');
+  return `<figure class="ph" id="ph-${key}"><div class="pbox"><svg viewBox="0 0 ${p.w} ${p.h}" style="${st}" role="img" aria-label="${p.cap}，真实超声图"><image href="img/${key}.${p.ext||'jpg'}" width="${p.w}" height="${p.h}"/><g class="rg">${rg.map(region).join('')}</g><g class="ov">${ov}</g></svg></div>`+
+    (rg.length?`<div class="chips" aria-label="点选结构以高亮">${chips}</div>`:'')+
+    `<figcaption><b>${p.cap}</b>　${p.note}<br><span class="cr">${CR[p.cr]}</span></figcaption></figure>`;
+}
+function focusPh(fig, n){
+  const cur = fig.dataset.focus===n ? '' : n;
+  fig.dataset.focus = cur; fig.classList.toggle('focus', !!cur);
+  fig.querySelectorAll('[data-n]').forEach(el=>{
+    const on = !!cur && el.dataset.n===cur; el.classList.toggle('on',on);
+    if(el.tagName==='BUTTON') el.setAttribute('aria-pressed',String(on));
+  });
+}
+
+document.getElementById('figs').innerHTML = G.map(g=>{
+  const ph = PH[g.id]||[]; const sch = `<div class="svgbox">${diagram(g)}</div>`;
+  return `
+  <div class="fig" id="fig-${g.id}">
+    <div class="real">${ph.length ? ph.map(photo).join('') : '<p class="sub" style="font-size:13px">暂未找到开放许可的此切面真实超声图，以下为示意图。</p>'+sch}</div>
+    <div class="cap">
+      <h3><span class="vid">${g.vid}</span>${g.title}</h3>
+      <dl>
+        <dt>探头位置</dt><dd>${g.probe}</dd>
+        <dt>识别顺序</dt><dd><ol class="li">${g.steps.map(x=>`<li>${x}</li>`).join('')}</ol></dd>
+        <dt>进针与给药</dt><dd>${g.inj}</dd>
+        <dt>危险结构</dt><dd class="dg">${g.risk}</dd>
+      </dl>
+    </div>
+    ${ph.length ? `<details class="schem"><summary>对照示意图（解剖关系与进针路径）</summary>${sch}</details>` : ''}
+  </div>`; }).join('');
+
+/* 图例 */
+const LG = [
+  ['靶肌（青色虚线）','<rect width="30" height="20" fill="#1b1b1b"/><ellipse cx="15" cy="10" rx="11" ry="6" fill="#262626" stroke="#46d7df" stroke-width="1.6" stroke-dasharray="3 2"/>'],
+  ['肌肉（低回声 + 条纹）','<rect width="30" height="20" fill="#1b1b1b"/><ellipse cx="15" cy="10" rx="11" ry="6" fill="#262626" stroke="#a6a6a6"/><path d="M8 9h5M16 11h5" stroke="#8f8f8f"/>'],
+  ['骨皮质 + 声影','<rect width="30" height="20" fill="#1b1b1b"/><rect x="5" y="9" width="20" height="11" fill="#020202"/><path d="M5 9 Q15 5 25 9" stroke="#f6f6f6" stroke-width="2.5" fill="none"/>'],
+  ['动脉 / 静脉（无回声）','<rect width="30" height="20" fill="#1b1b1b"/><circle cx="10" cy="10" r="6" class="u-a"/><ellipse cx="22" cy="10" rx="6" ry="4" class="u-v"/>'],
+  ['神经（低回声圆 / 蜂窝）','<rect width="30" height="20" fill="#1b1b1b"/><circle cx="15" cy="10" r="6" fill="#151515" stroke="#e4e4e4" stroke-width="1.4"/>'],
+  ['进针路径（平面内）','<rect width="30" height="20" fill="#1b1b1b"/><line x1="3" y1="4" x2="24" y2="15" stroke="#8af0a8" stroke-width="2"/><circle cx="24" cy="15" r="2.4" fill="#8af0a8"/>']
+];
+document.getElementById('legend').innerHTML = LG.map(([t,s])=>`<span class="lg"><svg viewBox="0 0 30 20">${s}</svg>${t}</span>`).join('');
+
+const dop = document.getElementById('dopBtn');
+dop.addEventListener('click',()=>{
+  const on = dop.getAttribute('aria-pressed')!=='true';
+  dop.setAttribute('aria-pressed',String(on));
+  dop.textContent = on?'示意图：关闭彩色多普勒':'示意图：显示彩色多普勒';
+  document.getElementById('s6').classList.toggle('doppler',on);
+});
+const s6 = document.getElementById('s6');
+const ovR = document.getElementById('ovRange'), ovO = document.getElementById('ovOut');
+ovR.addEventListener('input',()=>{ s6.style.setProperty('--ova', String(ovR.value/100)); ovO.textContent = ovR.value+'%'; });
+document.getElementById('figs').addEventListener('click',e=>{
+  const t = e.target.closest('.chip,.lab,.r'); if(!t) return;
+  const fig = t.closest('.ph'); if(fig) focusPh(fig, t.dataset.n);
+});
+const lbl = document.getElementById('lblBtn');
+lbl.addEventListener('click',()=>{
+  const on = lbl.getAttribute('aria-pressed')!=='true';
+  lbl.setAttribute('aria-pressed',String(on));
+  lbl.textContent = on?'显示中文标注':'隐藏中文标注';
+  document.getElementById('s6').classList.toggle('nolabel',on);
+});
+</script>
+
+</body>
+</html>
